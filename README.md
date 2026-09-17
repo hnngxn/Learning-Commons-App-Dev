@@ -5,13 +5,7 @@
 **2. Project Overview**
 
 **3. Goals and Objectives**
-**1. Title and Group Members**
-* Title: Learning Commons Cloud System
-* Team Members: Han Nguyen, Saurav Poudel, Uyen Duong, Van Diep, Jaxon Zaleski    
-
-**3. Goals and Objectives**
-
-This project will resemble the previous application it’s based on in many ways, but it will have additional features designed on new code/hardware. The newer features include confirmation of text for form submission, the ability to add multiple students to the form at a time, and others.
+* This project will resemble the previous application it’s based on in many ways, but it will have additional features designed on new code/hardware. The newer features include confirmation of text for form submission, the ability to add multiple students to the form at a time, and others.
 
 **4. Functional Requirements in the format (fill in the square brackets with your own words):**
 * Elaborate each of these with several examples in this format: 
