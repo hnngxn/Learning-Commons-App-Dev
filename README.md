@@ -3,6 +3,7 @@
 * Team Members: Han Nguyen, Saurav Poudel, Uyen Duong, Van Diep, Jaxon Zaleski    
 
 **2. Project Overview**
+*We've been asked to revamp a the Learning Commons Cloud System, it is an outdated system that has some annoyances, such as students getting multiple points since the app doesn't say whether an input was completed or not. This leads to multiple emails getting sent out to the supervisor and user, and the user going back to subtract student points.
 
 **3. Goals and Objectives**
 * This project will resemble the previous application it’s based on in many ways, but it will have additional features designed on new code/hardware. The newer features include confirmation of text for form submission, the ability to add multiple students to the form at a time, and others.
