@@ -30,7 +30,22 @@ You need to submit both a document file and a link to this .md file on your GitH
 **7. Architecture and components of your application (Diagram)**
 
 **8. Scrum roles and who will fill those roles (responsibilities of each member in the group)**
-
+* Van Diep
+	* Role: Scrum Master
+ 	* Responsibilities: Leads Scrum meetings, coordinates Sprint planning, removes blockers.	
+* Saurav Poudel
+	* Role:
+ 	* Responsibilities:		
+* Han Nguyen
+ 	* Role: Developer
+ 	* Responsibilities:		
+* Uyen Duong
+ 	* Role: Developer
+ 	* Responsibilities:		
+* Jaxon Zaleski
+ 	* Role: Developer
+ 	* Responsibilities:
+  
 **9. GitHub project [link.](https://github.com/hnngxn/Learning-Commons-App-Dev/new/main)** 
 
 **10. Each team must submit their GitHub repository and GitHub Project board. This will be used to track milestones, stories, and sprint tasks for your final project. Set it up as follows:**
