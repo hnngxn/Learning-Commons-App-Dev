@@ -49,6 +49,8 @@ The user begins by selecting a staff member and choosing whether to record a bon
 
 **6. Class Diagram**
 
+<img width="3144" height="4108" alt="LC UML DIagram" src="https://github.com/user-attachments/assets/15003a8d-75c4-4e48-a466-6a7a31996ba6" />
+
 * UML-based class diagram. 
 
 * Class Diagram Description: One or two lines for each class to describe use of interfaces, classes and resources, interfaces, etc. Don't worry about putting more than a few words for each class; this does not need to be thorough. 
@@ -62,8 +64,8 @@ You need to submit both a document file and a link to this .md file on your GitH
 	* Role: Scrum Master
  	* Responsibilities: Leads Scrum meetings, coordinates Sprint planning, removes blockers.	
 * Saurav Poudel
-	* Role:
- 	* Responsibilities:		
+	* Role: Developer
+ 	* Responsibilities: Backend and front-end development
 * Han Nguyen
  	* Role: Developer
  	* Responsibilities: Front-end developer, and help with back-end coding	
