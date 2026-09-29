@@ -18,7 +18,7 @@
 	* Then [Expected Result] 
 
 **5. Storyboard (screen mockups):
-The storyboard illustrates the primary workflows of the Learning Commons Staff Points System. 
+* The storyboard illustrates the primary workflows of the Learning Commons Staff Points System. 
 The application includes a standard staff-points entry workflow and additional administrative workflows.
 
 ### Staff Points Entry Workflow
