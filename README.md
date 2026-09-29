@@ -17,31 +17,26 @@
 
 	* Then [Expected Result] 
 
-**5. Storyboard (screen mockups):
-* The storyboard illustrates the primary workflows of the Learning Commons Staff Points System. 
-The application includes a standard staff-points entry workflow and additional administrative workflows.
+**5. Storyboard (screen mockups):**
 
-### Staff Points Entry Workflow
+The storyboard illustrates the primary workflows of the Learning Commons Staff Points System. The application includes a standard staff-points entry workflow and additional administrative workflows.
+
+**Staff Points Entry Workflow**
 
 Home → Who and What → Bonus/Infraction Details → Points and Date → Review → Confirmation
 
-The user begins by selecting a staff member and choosing whether to record a bonus or infraction. 
-The user then selects the event type, reviews the point value and date, adds any required details 
-or attachments, and reviews the entry before submitting. The system displays a confirmation 
-after the entry is successfully saved.
+The user begins by selecting a staff member and choosing whether to record a bonus or infraction. The user then selects the event type, reviews the point value and date, adds any required details or attachments, and reviews the entry before submitting. The system displays a confirmation after the entry is successfully saved.
 
-### Administrative Workflows
-
-Administrators have access to additional tools:
+**Administrative Workflows**
 
 - **Bulk Intake** — Apply the same event to multiple staff members.
 - **Eligibility Dashboard** — View staff point totals and raise eligibility.
 - **Point Reversal** — Reverse an incorrect point entry while preserving the history.
 - **Semester Reset** — Manage the roster and reset staff points for a new semester.
 
-### Screen Mockups
-The complete screen mockups are available here:
-[View Screen Mockups](docs/UCLCMockups.pdf)
+**Screen Mockups**
+
+[View Screen Mockups](./docs/UCLCMockups.pdf)
 
 **6. Class Diagram**
 
