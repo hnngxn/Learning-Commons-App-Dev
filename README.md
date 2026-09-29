@@ -17,7 +17,7 @@
 
 	* Then [Expected Result] 
 
-**5. Storyboard (screen mockups): Invision, FluidUI, PowerPoint, Figma, Paint, etc., will be fine.**
+**5. Storyboard (screen mockups): Figma
 
 **6. Class Diagram**
 
@@ -38,7 +38,7 @@ You need to submit both a document file and a link to this .md file on your GitH
  	* Responsibilities:		
 * Han Nguyen
  	* Role: Developer
- 	* Responsibilities:		
+ 	* Responsibilities: Front-end developer, and help with back-end coding	
 * Uyen Duong
  	* Role: Developer
  	* Responsibilities:		
