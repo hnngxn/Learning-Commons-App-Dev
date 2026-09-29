@@ -3,7 +3,7 @@
 * Team Members: Han Nguyen, Saurav Poudel, Uyen Duong, Van Diep, Jaxon Zaleski    
 
 **2. Project Overview**
-* We've been asked to revamp a the Learning Commons Cloud System, it is an outdated system that has some annoyances, such as students getting multiple points since the app doesn't say whether an input was completed or not. This leads to multiple emails getting sent out to the supervisor and user, and the user going back to subtract student points.
+* We've been asked to revamp the Learning Commons Cloud System, it is an outdated system that has some annoyances, such as not getting a confirmation to a submition. This leads to multiple emails getting sent out to the supervisor and user, and the user going back to subtract student points.
 
 **3. Goals and Objectives**
 * This project will resemble the previous application it’s based on in many ways, but it will have additional features designed on new code/hardware. The newer features include confirmation of text for form submission, the ability to add multiple students to the form at a time, and others.
@@ -11,11 +11,20 @@
 **4. Functional Requirements in the format (fill in the square brackets with your own words):**
 * Elaborate each of these with several examples in this format: 
 
-	* Given [Prerequisite] 
+	* Given [The scenario we have been given to find the solution to a problem.] 
+		* Given how often we use this system...
+		* Given the data present...
+		* Given my customer service expectations...
 
-	* When [Series of Steps] 
+	* When [The condition for the solution in the scenario]
+		* When we sumbit data, we expect the system to confirm our submition...
+		* When using the app, users would want multiple solutions to the same problem...       (problem == navigation or features)
+		* When I go to a cofee shop, I expect to be greeted politely...
 
-	* Then [Expected Result] 
+	* Then [The result of the solution] 
+		* Then there would be less human error.
+		* Then ease of navigation would be simpler.
+		* Then I would feel more welcome.
 
 **5. Storyboard (screen mockups):**
 
