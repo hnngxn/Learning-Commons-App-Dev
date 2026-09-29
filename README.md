@@ -19,7 +19,7 @@
 
 **5. Storyboard (screen mockups):**
 
-The storyboard illustrates the primary workflows of the Learning Commons Staff Points System. The application includes a standard staff-points entry workflow and additional administrative workflows.
+* The storyboard illustrates the primary workflows of the Learning Commons Staff Points System. The application includes a standard staff-points entry workflow and additional administrative workflows.
 
 **Staff Points Entry Workflow**
 
@@ -29,10 +29,10 @@ The user begins by selecting a staff member and choosing whether to record a bon
 
 **Administrative Workflows**
 
-- **Bulk Intake** — Apply the same event to multiple staff members.
-- **Eligibility Dashboard** — View staff point totals and raise eligibility.
-- **Point Reversal** — Reverse an incorrect point entry while preserving the history.
-- **Semester Reset** — Manage the roster and reset staff points for a new semester.
+- **Bulk Intake** : Apply the same event to multiple staff members.
+- **Eligibility Dashboard** : View staff point totals and raise eligibility.
+- **Point Reversal** : Reverse an incorrect point entry while preserving the history.
+- **Semester Reset** : Manage the roster and reset staff points for a new semester.
 
 **Screen Mockups**
 
