@@ -127,7 +127,7 @@ You need to submit both a document file and a link to this .md file on your GitH
  	* Responsibilities: Front-end developer, and help with back-end coding	
 * Uyen Duong
  	* Role: Developer
- 	* Responsibilities:		
+ 	* Responsibilities:	Back-end developer, and help with front-end if needed
 * Jaxon Zaleski
  	* Role: Developer
  	* Responsibilities: Back-end and front-end if needed
