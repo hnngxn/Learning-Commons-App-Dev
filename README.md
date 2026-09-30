@@ -58,6 +58,7 @@ You need to submit both a document file and a link to this .md file on your GitH
 
 
 **7. Architecture and components of your application (Diagram)**
+* ![Architecture Diagram](docs/architecture.png)
 
 **8. Scrum roles and who will fill those roles (responsibilities of each member in the group)**
 * Van Diep
