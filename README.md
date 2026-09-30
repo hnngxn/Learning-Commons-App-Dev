@@ -3,62 +3,83 @@
 * Team Members: Han Nguyen, Saurav Poudel, Uyen Duong, Van Diep, Jaxon Zaleski    
 
 **2. Project Overview**
-* We've been asked to revamp the Learning Commons Cloud System, it is an outdated system that has some annoyances, such as not getting a confirmation to a submition. This leads to multiple emails getting sent out to the supervisor and user, and the user going back to subtract student points.
+* The Learning Commons Cloud System is an existing system used to manage student and employee point-related processes. We have been asked to revamp the system because it is outdated and has several limitations that can create unnecessary work for users and supervisors. For example, the current system does not always provide confirmation when a submission is completed. This can lead to duplicate emails being sent to both the supervisor and user, as well as users having to manually go back and subtract student points when a submission is processed incorrectly. The project will thus focus on modernizing the current system while preserving its core functionality. The proposed project will examine the existing system, identify areas for improvement, and establish requirements for a more reliable, efficient, and user-friendly system.
 
 **3. Goals and Objectives**
-* This project will resemble the previous application it’s based on in many ways, but it will have additional features designed on new code/hardware. The newer features include confirmation of text for form submission, the ability to add multiple students to the form at a time, and others.
+* The primary goal of this project is to modernize the Learning Commons Cloud System while preserving its existing core functionality. The revamped system should reduce unnecessary work for students, employees, and supervisors while providing a more reliable and efficient experience. The project aims to:
+	* Preserve existing data from the current system while transitioning to the modernized system.
+ 	* Improve the reliability and usability of the existing system.
+	* Reduce unnecessary communication and manual work caused by system limitations.
+	* Make entering and managing points more efficient.
+ 	* Improve communication between staff, supervisors, and employees.
+  	* Simplify the process of managing the system at the beginning of each semester.
+  	* Provide clear documentation and training resources for new users.
+
+* To accomplish these goals, the project will:
+	* Review and migrate the existing database data into the modernized system while maintaining data accuracy and accessibility.	 	
+	* Develop a bulk intake form that allows staff to enter multiple point-related records efficiently.
+	* Implement automated email notifications for relevant point-related actions.
+	* Notify employees and appropriate supervisors when an employee reaches 125 or more points and becomes eligible for a raise.
+	* Configure automated emails to notify the staff member entering the points, the supervisor of the position, and the employee receiving the points.
+	* Allow infractions to be entered as positive numbers while correctly applying them as reductions to the employee's rolling point total.
+	* Provide a method for reversing or correcting point entries when an error has been made.
+	* Create a semester reset process that allows administrators to add and remove staff members and establish the appropriate starting point totals.
+	* Set new employees to a starting balance of 65 points and returning employees to a starting balance of 70 points at the beginning of each semester.
+	* Preserve necessary historical information when completing a semester reset.
+	* Develop a training video to help new users learn how to use the system.
+	* Create a process sheet that documents common system procedures and provides a reference for new and existing users.
 
 **4. Functional Requirements**
 
 * Bulk Intake Form
-	* Given multiple new tutors need to be added to the system at the beginning of a semester
-	* When an administrator uploads a bulk intake file
-	* Then the system should create records for all valid tutor entries
+	* Given multiple new tutors need to be added to the system at the beginning of a semester...
+	* When an administrator uploads a bulk intake file...
+	* Then the system should create records for all valid tutor entries.
 
 * Raise Eligibility Notification
-	* Given a tutor has accumulated performance points
-	* When the tutor reaches 125 or more points
-	* Then the system should automatically notify relevant staff that the tutor is eligible for a raise
+	* Given a tutor has accumulated performance points...
+	* When the tutor reaches 125 or more points...
+	* Then the system should automatically notify relevant staff that the tutor is eligible for a raise.
 
 * Supervisor Notifications
-	* Given a point transaction is entered for a tutor
-	* When the transaction is submitted
-	* Then the system should send notifications to the employee, supervisor, and staff member who entered the points
+	* Given a point transaction is entered for a tutor...
+	* When the transaction is submitted...
+	* Then the system should send notifications to the employee, supervisor, and staff member who entered the points.
 
 * Semester Reset
-	* Given a new semester is starting
-	* When an administrator performs a semester reset
-	* Then tutor point totals should be reset according to established rules
+	* Given a new semester is starting...
+	* When an administrator performs a semester reset...
+	* Then tutor point totals should be reset according to established rules.
 
 * Point Reversal
-	* Given a point entry was entered incorrectly
-	* When an administrator chooses to reverse the transaction
-	* Then the tutor's point total should be adjusted accordingly
+	* Given a point entry was entered incorrectly...
+	* When an administrator chooses to reverse the transaction...
+	* Then the tutor's point total should be adjusted accordingly.
 
 * Positive Infraction Entry
-	* Given an employee receives an infraction
-	* When a staff member enters the infraction value as a positive number
-	* Then the system should subtract the value from the tutor's rolling point total
+	* Given an employee receives an infraction...
+	* When a staff member enters the infraction value as a positive number...
+	* Then the system should subtract the value from the tutor's rolling point total.
 
 * Employee Setup During Semester Reset
-	* Given the system is being prepared for a new semester
-	* When an administrator completes the semester reset process
-	* Then new tutors should receive 65 starting points and returning tutors should receive 70 starting points
+	* Given the system is being prepared for a new semester...
+	* When an administrator completes the semester reset process...
+	* Then new tutors should receive 65 starting points and returning tutors should receive 70 starting points.
 
 * Staff Maintenance
-	* Given staff membership changes between semesters
-	* When an administrator adds or removes tutors from the system
-	* Then the database should accurately reflect the current roster of tutors
+	* Given staff membership changes between semesters...
+	* When an administrator adds or removes tutors from the system...
+	* Then the database should accurately reflect the current roster of tutors.
 
 * Automated Email Distribution
-	* Given a point-related event requires notification
-	* When the system generates an automated email
-	* Then the email should be sent to all designated recipients based on the notification rules
+	* Given a point-related event requires notification...
+	* When the system generates an automated email...
+	* Then the email should be sent to all designated recipients based on the notification rules.
 
 * Training Resources
-	* Given a new user needs assistance learning the system
-	* When the user accesses training materials
-	* Then the user should be able to view process documentation and instructional resources for system usage
+	* Given a new user needs assistance learning the system...
+	* When the user accesses training materials...
+	* Then the user should be able to view process documentation and instructional resources for system usage.
 
 **5. Storyboard (screen mockups):**
 
