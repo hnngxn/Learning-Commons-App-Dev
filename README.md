@@ -8,23 +8,57 @@
 **3. Goals and Objectives**
 * This project will resemble the previous application it’s based on in many ways, but it will have additional features designed on new code/hardware. The newer features include confirmation of text for form submission, the ability to add multiple students to the form at a time, and others.
 
-**4. Functional Requirements in the format (fill in the square brackets with your own words):**
-* Elaborate each of these with several examples in this format: 
+**4. Functional Requirements**
 
-	* Given [The scenario we have been given to find the solution to a problem.] 
-		* Given how often we use this system...
-		* Given the data present...
-		* Given my customer service expectations...
+* Bulk Intake Form
+	* Given multiple new tutors need to be added to the system at the beginning of a semester
+	* When an administrator uploads a bulk intake file
+	* Then the system should create records for all valid tutor entries
 
-	* When [The condition for the solution in the scenario]
-		* When we sumbit data, we expect the system to confirm our submition...
-		* When using the app, users would want multiple solutions to the same problem...       (problem == navigation or features)
-		* When I go to a cofee shop, I expect to be greeted politely...
+* Raise Eligibility Notification
+	* Given a tutor has accumulated performance points
+	* When the tutor reaches 125 or more points
+	* Then the system should automatically notify relevant staff that the tutor is eligible for a raise
 
-	* Then [The result of the solution] 
-		* Then there would be less human error.
-		* Then ease of navigation would be simpler.
-		* Then I would feel more welcome.
+* Supervisor Notifications
+	* Given a point transaction is entered for a tutor
+	* When the transaction is submitted
+	* Then the system should send notifications to the employee, supervisor, and staff member who entered the points
+
+* Semester Reset
+	* Given a new semester is starting
+	* When an administrator performs a semester reset
+	* Then tutor point totals should be reset according to established rules
+
+* Point Reversal
+	* Given a point entry was entered incorrectly
+	* When an administrator chooses to reverse the transaction
+	* Then the tutor's point total should be adjusted accordingly
+
+* Positive Infraction Entry
+	* Given an employee receives an infraction
+	* When a staff member enters the infraction value as a positive number
+	* Then the system should subtract the value from the tutor's rolling point total
+
+* Employee Setup During Semester Reset
+	* Given the system is being prepared for a new semester
+	* When an administrator completes the semester reset process
+	* Then new tutors should receive 65 starting points and returning tutors should receive 70 starting points
+
+* Staff Maintenance
+	* Given staff membership changes between semesters
+	* When an administrator adds or removes tutors from the system
+	* Then the database should accurately reflect the current roster of tutors
+
+* Automated Email Distribution
+	* Given a point-related event requires notification
+	* When the system generates an automated email
+	* Then the email should be sent to all designated recipients based on the notification rules
+
+* Training Resources
+	* Given a new user needs assistance learning the system
+	* When the user accesses training materials
+	* Then the user should be able to view process documentation and instructional resources for system usage
 
 **5. Storyboard (screen mockups):**
 
