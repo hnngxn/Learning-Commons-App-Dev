@@ -75,7 +75,7 @@ You need to submit both a document file and a link to this .md file on your GitH
  	* Responsibilities:		
 * Jaxon Zaleski
  	* Role: Developer
- 	* Responsibilities:
+ 	* Responsibilities: Back-end and front-end if needed
   
 **9. GitHub project [link.](https://github.com/hnngxn/Learning-Commons-App-Dev/projects)** 
 
