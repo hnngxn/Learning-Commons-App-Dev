@@ -134,6 +134,5 @@ You need to submit both a document file and a link to this .md file on your GitH
   
 **9. GitHub project [link.](https://github.com/hnngxn/Learning-Commons-App-Dev/projects)** 
 
-**10. Each team must submit their GitHub repository and GitHub Project board. This will be used to track milestones, stories, and sprint tasks for your final project.
-* [Link to Github Projects](https://github.com/hnngxn/Learning-Commons-App-Dev/projects)
+**10. Each team must submit their GitHub repository and [GitHub Project board](https://github.com/hnngxn/Learning-Commons-App-Dev/projects). This will be used to track milestones, stories, and sprint tasks for your final project.**
 
