@@ -6,6 +6,6 @@ spring:
     url: jdbc:mysql://localhost:3307/LearningCommonsDB?createDatabaseIfNotExist=true
     username: root
 #   Add Your Password
-    password: j959GGtsO5
+    password:
   jpa:
     show-sql: true
