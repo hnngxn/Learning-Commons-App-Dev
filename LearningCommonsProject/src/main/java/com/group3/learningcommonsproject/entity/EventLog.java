@@ -23,7 +23,10 @@ public class EventLog {
     @JoinColumn(name = "point_event_id", nullable = false)
     private PointEvent pointEvent;
 
+    @Column(name = "points_applied")
     private int pointsApplied;
+
+    @Column(name = "event_date")
     private LocalDate eventDate;
     private String comments;
 }
