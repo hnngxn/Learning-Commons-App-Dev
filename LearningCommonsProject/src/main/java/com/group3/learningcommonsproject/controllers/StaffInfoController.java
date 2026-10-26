@@ -21,4 +21,9 @@ public class StaffInfoController {
     ) {
         return staffInfoRepository.findAll(Sort.by(sort));
     }
+
+    @GetMapping("/filter")
+    public java.util.List<StaffInfo> getStaffByProgram(@RequestParam Long programId) {
+        return staffInfoRepository.findByPrograms_Id(programId);
+    }
 }
