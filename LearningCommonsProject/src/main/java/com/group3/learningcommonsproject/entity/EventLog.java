@@ -3,6 +3,8 @@ package com.group3.learningcommonsproject.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDate;
+import com.group3.learningcommonsproject.entities.StaffInfo;
+import com.group3.learningcommonsproject.entity.PointEvent;
 
 @Entity
 @Table(name = "Event_Log")
