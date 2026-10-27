@@ -6,6 +6,7 @@ import com.group3.learningcommonsproject.repository.PointEventRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.domain.Sort;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +25,7 @@ public class PointEventController {
     public List<PointEventDto> getAllPointEvents() {
         List<PointEventDto> result = new ArrayList<>();
 
-        for (PointEvent event : pointEventRepository.findAll()) {
+        for (PointEvent event : pointEventRepository.findAll(Sort.by("eventType", "eventName"))) {
             result.add(new PointEventDto(event.getId(), event.getEventName(), event.getEventType(), event.getMinPoints(), event.getMaxPoints()));
         }
         return result;   // hand the pile back
