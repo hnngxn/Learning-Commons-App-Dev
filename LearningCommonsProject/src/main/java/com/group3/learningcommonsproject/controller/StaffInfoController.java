@@ -2,6 +2,7 @@ package com.group3.learningcommonsproject.controller;
 
 import com.group3.learningcommonsproject.dto.StaffInfoDto;
 import com.group3.learningcommonsproject.entity.StaffInfo;
+import com.group3.learningcommonsproject.errorResponses.ResourceNotFoundException;
 import com.group3.learningcommonsproject.mapper.StaffInfoMapper;
 import com.group3.learningcommonsproject.repository.StaffInfoRepository;
 import com.group3.learningcommonsproject.services.StaffInfoService;
@@ -38,4 +39,10 @@ public class StaffInfoController {
     ) {
         return staffInfoService.updateStaffInfo(id, data);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteStaffInfo(@PathVariable Long id) {
+        return staffInfoService.deleteStaffInfo(id);
+    }
+
 }

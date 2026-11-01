@@ -10,6 +10,7 @@ import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @Service
@@ -22,7 +23,7 @@ public class StaffInfoService {
     public StaffInfoDto createStaffInfo(StaffInfoDto data) {
         var staffInfo = staffInfoMapper.toEntity(data);
         //region if(staffInfo == null(){throw new BadRequest}
-        if(staffInfo.getFullName() == null ||
+        if (staffInfo.getFullName() == null ||
                 staffInfo.getEmail() == null ||
                 staffInfo.getPosition1() == null ||
                 staffInfo.getPosition2() == null ||
@@ -39,11 +40,20 @@ public class StaffInfoService {
 
     @Transactional
     public ResponseEntity<StaffInfoDto> updateStaffInfo(Long id, StaffInfoDto data) {
-        if(data == null) throw new BadRequest();
+        if (data == null) throw new BadRequest();
 
         var staffInfo = staffInfoRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException());
         staffInfoMapper.update(data, staffInfo);
         staffInfoRepository.save(staffInfo);
         return ResponseEntity.ok(staffInfoMapper.toDto(staffInfo));
+    }
+
+    @Transactional
+    public ResponseEntity<Void> deleteStaffInfo(Long id) {
+        var staffInfo = staffInfoRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException());
+
+        staffInfoRepository.delete(staffInfo);
+        return ResponseEntity.noContent().build();
     }
 }
