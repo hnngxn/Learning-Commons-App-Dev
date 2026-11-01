@@ -12,5 +12,7 @@ public interface StaffInfoMapper {
 
     @Mapping(target = "id", ignore = true)
     StaffInfo toEntity(StaffInfoDto staffInfoDto);
+
+    @Mapping(target = "id", ignore = true)
     void update(StaffInfoDto staffInfoDto, @MappingTarget StaffInfo staffInfo);
 }

@@ -7,6 +7,7 @@ import com.group3.learningcommonsproject.repository.StaffInfoRepository;
 import com.group3.learningcommonsproject.services.StaffInfoService;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,5 +29,13 @@ public class StaffInfoController {
     @PostMapping
     public StaffInfoDto createStaffInfo(@RequestBody StaffInfoDto data) {
         return staffInfoService.createStaffInfo(data);
+    }
+
+    @PutMapping("{id}")
+    public ResponseEntity<StaffInfoDto> updateStaffInfo(
+            @PathVariable(name="id") Long id,
+            @RequestBody StaffInfoDto data
+    ) {
+        return staffInfoService.updateStaffInfo(id, data);
     }
 }

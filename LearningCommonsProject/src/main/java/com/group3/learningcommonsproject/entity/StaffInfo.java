@@ -34,5 +34,5 @@ public class StaffInfo {
     private String supervisor2;
 
     @Column(name = "Current_Points")
-    private int currentPoints;
+    private Integer currentPoints;
 }

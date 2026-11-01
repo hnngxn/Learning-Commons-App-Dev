@@ -15,5 +15,5 @@ public class StaffInfoDto {
     private String supervisor1;
     private String position2;
     private String supervisor2;
-    private Integer CurrentPoints;
+    private Integer currentPoints;
 }
