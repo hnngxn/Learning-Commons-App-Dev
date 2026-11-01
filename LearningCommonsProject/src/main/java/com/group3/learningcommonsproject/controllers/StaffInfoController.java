@@ -1,5 +1,6 @@
 package com.group3.learningcommonsproject.controllers;
 
+import com.group3.learningcommonsproject.dto.StaffInfoDto;
 import com.group3.learningcommonsproject.entities.StaffInfo;
 import com.group3.learningcommonsproject.errorResponses.ResourceNotFoundException;
 import com.group3.learningcommonsproject.repositories.StaffInfoRepository;
@@ -20,5 +21,10 @@ public class StaffInfoController {
             @RequestParam(required = false, defaultValue = "FullName") String sort
     ) {
         return staffInfoRepository.findAll(Sort.by(sort));
+    }
+
+    @PostMapping
+    public StaffInfoDto createStaffInfo() {
+
     }
 }
