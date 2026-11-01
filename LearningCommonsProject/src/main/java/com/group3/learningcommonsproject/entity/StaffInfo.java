@@ -1,4 +1,4 @@
-package com.group3.learningcommonsproject.entities;
+package com.group3.learningcommonsproject.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -27,6 +27,12 @@ public class StaffInfo {
     @Column(nullable = false, name = "Supervisor_1")
     private String supervisor1;
 
-    @Column(nullable = false, name = "Current_Points")
+    @Column(nullable = false, name = "Position_2")
+    private String position2;
+
+    @Column(name = "Supervisor_2")
+    private String supervisor2;
+
+    @Column(name = "Current_Points")
     private int currentPoints;
 }

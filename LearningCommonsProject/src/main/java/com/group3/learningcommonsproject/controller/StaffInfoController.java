@@ -1,9 +1,10 @@
-package com.group3.learningcommonsproject.controllers;
+package com.group3.learningcommonsproject.controller;
 
 import com.group3.learningcommonsproject.dto.StaffInfoDto;
-import com.group3.learningcommonsproject.entities.StaffInfo;
-import com.group3.learningcommonsproject.errorResponses.ResourceNotFoundException;
-import com.group3.learningcommonsproject.repositories.StaffInfoRepository;
+import com.group3.learningcommonsproject.entity.StaffInfo;
+import com.group3.learningcommonsproject.mapper.StaffInfoMapper;
+import com.group3.learningcommonsproject.repository.StaffInfoRepository;
+import com.group3.learningcommonsproject.services.StaffInfoService;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,7 @@ import java.util.List;
 @RequestMapping("/api/staff-information")
 public class StaffInfoController {
     private final StaffInfoRepository staffInfoRepository;
+    private final StaffInfoService staffInfoService;
 
     @GetMapping
     public List<StaffInfo> getAllStaffInfo(
@@ -24,7 +26,7 @@ public class StaffInfoController {
     }
 
     @PostMapping
-    public StaffInfoDto createStaffInfo() {
-
+    public StaffInfoDto createStaffInfo(@RequestBody StaffInfoDto data) {
+        return staffInfoService.createStaffInfo(data);
     }
 }
