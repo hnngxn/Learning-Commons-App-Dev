@@ -5,8 +5,6 @@ import com.group3.learningcommonsproject.entity.PointEvent;
 import com.group3.learningcommonsproject.repository.PointEventRepository;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.data.domain.Sort;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import com.group3.learningcommonsproject.errorResponses.ResourceNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +37,7 @@ public class PointEventController {
         event.setMaxPoints(request.getMaxPoints());
 
         PointEvent saved = pointEventRepository.save(event);
-        return new PointEventDto(saved.getId(), saved.getEventName(), saved.getEventType(), saved.getMinPoints(), saved.getMaxPoints(), event.isActive());
+        return new PointEventDto(saved.getId(), saved.getEventName(), saved.getEventType(), saved.getMinPoints(), saved.getMaxPoints(), saved.isActive());
         }
     @PutMapping("/{id}")
     public PointEventDto updatePointEvent(@PathVariable Long id, @RequestBody PointEventDto request) {
@@ -51,7 +49,7 @@ public class PointEventController {
         event.setActive(request.isActive()); //deactivate instead of delete
 
         PointEvent saved = pointEventRepository.save(event);
-        return new PointEventDto(saved.getId(), saved.getEventName(), saved.getEventType(), saved.getMinPoints(), saved.getMaxPoints(), event.isActive());
+        return new PointEventDto(saved.getId(), saved.getEventName(), saved.getEventType(), saved.getMinPoints(), saved.getMaxPoints(), saved.isActive());
         }
     }
 
