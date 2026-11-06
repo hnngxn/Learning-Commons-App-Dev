@@ -1,3 +1,19 @@
+## For Code Reviewers (start here)
+
+**Getting Started**
+
+
+**Code Review Access**
+* Code reviewers have been added as collaborators. Accept the invite from your email or GitHub notifications first.
+* To review:
+	1. Clone the repo: git clone https://github.com/hnngxn/Learning-Commons-App-Dev.git
+	2. Create your own branch from `main`, for example: review/your-name
+	3. Commit and push your changes to that branch
+	4. Open a pull request into `main` and add your comments there
+* Please do not push directly to `main`.
+
+---
+
 **1. Title and Group Members**
 * Title: Learning Commons Cloud System
 * Team Members: Han Nguyen, Saurav Poudel, Uyen Duong, Van Diep, Jaxon Zaleski    
