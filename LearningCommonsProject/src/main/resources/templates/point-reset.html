@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Semester Point Reset | Learning Commons</title>
+    <style>
+        :root { font-family: system-ui, sans-serif; color: #202b3c; background: #f3f5f8; }
+        * { box-sizing: border-box; }
+        body { margin: 0; }
+        header { background: #172d46; color: white; padding: 22px max(24px, calc((100% - 920px)/2)); }
+        header strong { font-size: 20px; }
+        header span { display: block; color: #c9d5e3; margin-top: 5px; font-size: 14px; }
+        main { max-width: 920px; margin: 40px auto; padding: 0 24px; }
+        h1 { font-size: clamp(26px, 5vw, 36px); margin-bottom: 10px; }
+        p { line-height: 1.6; }
+        .muted { color: #526175; }
+        .notice { border-left: 4px solid #b97800; background: #fff6df; padding: 16px 20px; margin: 24px 0; }
+        .card { background: white; border: 1px solid #dce2e9; border-radius: 12px; padding: 28px; margin: 24px 0; }
+        h2 { font-size: 20px; margin-top: 0; }
+        .fields, .balances { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        label { display: block; font-weight: 600; margin-bottom: 8px; }
+        input, select { width: 100%; font: inherit; border: 1px solid #8090a4; border-radius: 6px; padding: 11px; background: white; color: inherit; }
+        .balances { margin-top: 24px; }
+        .balance { background: #f0f5fa; border-radius: 8px; padding: 20px; }
+        .balance strong { display: block; font-size: 32px; color: #214e79; margin-top: 8px; }
+        .check { display: flex; gap: 12px; align-items: flex-start; font-weight: normal; line-height: 1.5; margin-top: 24px; }
+        .check input { width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px; }
+        .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+        button { font: inherit; font-weight: 600; border: 1px solid #214e79; padding: 12px 20px; border-radius: 6px; cursor: pointer; color: white; background: #214e79; }
+        button.secondary { background: white; color: #214e79; }
+        :focus-visible { outline: 3px solid #b15b00; outline-offset: 3px; }
+        dialog { max-width: 520px; width: calc(100% - 32px); border: 1px solid #dce2e9; border-radius: 12px; padding: 28px; }
+        dialog::backdrop { background: #14283a99; }
+        #status { background: #eaf2fb; border-radius: 8px; padding: 16px; }
+        #status:empty { display: none; }
+        footer { font-size: 14px; color: #526175; margin: 28px 0; }
+        @media (max-width: 560px) { .fields, .balances { grid-template-columns: 1fr; } .card { padding: 20px; } }
+    </style>
+</head>
+<body>
+<header><strong>Learning Commons</strong><span>Staff Points System · Administration</span></header>
+<main>
+    <h1>Semester point reset</h1>
+    <p class="muted">Prepare starting point balances for a new semester.</p>
+    <div class="notice"><strong>Preview only.</strong> The reset service is not connected. This page cannot change staff points or delete event history.</div>
+    <form id="reset-form">
+        <section class="card" aria-labelledby="semester-heading">
+            <h2 id="semester-heading">1. Choose the semester</h2>
+            <div class="fields">
+                <div><label for="term">Semester</label><select id="term" required><option value="">Select a semester</option><option>Spring</option><option>Summer</option><option>Fall</option></select></div>
+                <div><label for="year">Year</label><input id="year" type="number" min="2000" max="2100" step="1" required></div>
+            </div>
+        </section>
+        <section class="card" aria-labelledby="balance-heading">
+            <h2 id="balance-heading">2. Review starting balances</h2>
+            <p class="muted">Each employee has one semester balance, even when they work in multiple programs.</p>
+            <div class="balances">
+                <div class="balance">New employees<strong>65 <small>points</small></strong></div>
+                <div class="balance">Returning employees<strong>70 <small>points</small></strong></div>
+            </div>
+            <p>Existing event history must be preserved when the reset service is implemented.</p>
+            <label class="check"><input id="acknowledge" type="checkbox" required><span>I have reviewed the semester and starting balances. I understand this is a preview.</span></label>
+            <div class="actions"><button type="submit">Review reset preview</button><button type="reset" class="secondary">Clear form</button></div>
+        </section>
+    </form>
+    <p id="status" role="status" aria-live="polite"></p>
+    <footer>Staff classification and point updates will be handled by the reset service when it is connected.</footer>
+</main>
+<dialog id="review-dialog" aria-labelledby="review-heading" aria-describedby="review-description">
+    <h2 id="review-heading">Review semester reset</h2>
+    <p id="review-description"></p>
+    <ul><li>New employees: 65 points</li><li>Returning employees: 70 points</li><li>One total balance per employee across programs</li></ul>
+    <p><strong>No database changes will be made.</strong></p>
+    <div class="actions"><button id="finish" type="button">Finish preview</button><button id="back" type="button" class="secondary" autofocus>Back to form</button></div>
+</dialog>
+<script>
+    const form = document.getElementById('reset-form');
+    const year = document.getElementById('year');
+    const term = document.getElementById('term');
+    const dialog = document.getElementById('review-dialog');
+    const status = document.getElementById('status');
+    year.value = new Date().getFullYear();
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        status.textContent = '';
+        document.getElementById('review-description').textContent = `Starting balances for ${term.value} ${year.value}:`;
+        dialog.showModal();
+    });
+    document.getElementById('back').addEventListener('click', () => dialog.close());
+    document.getElementById('finish').addEventListener('click', () => {
+        dialog.close();
+        status.textContent = `Preview completed for ${term.value} ${year.value}. No staff points were changed. Database reset is not connected yet.`;
+    });
+    form.addEventListener('reset', () => { status.textContent = ''; });
+    form.addEventListener('input', () => { status.textContent = ''; });
+    form.addEventListener('change', () => { status.textContent = ''; });
+</script>
+</body>
+</html>
