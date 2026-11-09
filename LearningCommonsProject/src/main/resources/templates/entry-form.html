@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>New entry | LC Points</title>
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            background: #f5f6f8;
+            color: #202b3c;
+            margin: 0;
+        }
+        main {
+            max-width: 680px;
+            margin: 40px auto;
+            padding: 24px;
+        }
+        form {
+            background: white;
+            padding: 24px;
+            border: 1px solid #dce2e9;
+            border-radius: 10px;
+        }
+        label {
+            display: block;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+        input, select, textarea {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 10px;
+            margin-top: 8px;
+            font: inherit;
+        }
+        button {
+            margin-top: 24px;
+            padding: 12px 20px;
+            background: #214e79;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font: inherit;
+            cursor: pointer;
+        }
+        small {
+            display: block;
+            margin-top: 6px;
+        }
+        :focus-visible {
+            outline: 3px solid #a66a00;
+            outline-offset: 3px;
+        }
+    </style>
+</head>
+<body>
+<main>
+    <a th:href="@{/}">Learning Commons</a>
+    <h1>New point entry</h1>
+    <p>Complete the details, then review before submitting.</p>
+
+    <form method="post" th:action="@{/entries/review}">
+        <label for="staffId">Staff member</label>
+        <select id="staffId" name="staffId" required>
+            <option value="">Select a staff member</option>
+            <option th:each="person : ${staffMembers}"
+                    th:value="${person.id}"
+                    th:selected="${person.id == selectedStaffId}"
+                    th:text="|${person.fullName} — ${person.position1} (${person.email})|">
+            </option>
+        </select>
+
+        <label for="pointEventId">Bonus or infraction</label>
+        <select id="pointEventId" name="pointEventId" required>
+            <option value="">Select an event</option>
+            <option th:each="event : ${pointEvents}"
+                    th:value="${event.id}"
+                    th:selected="${form != null and event.id == form.pointEventId}"
+                    th:text="|${event.eventType}: ${event.eventName}|">
+            </option>
+        </select>
+
+        <label for="points">Point amount</label>
+        <input id="points" name="points" type="number"
+               min="1" max="2147483647" step="1"
+               th:value="${form != null ? form.points : null}"
+               aria-describedby="points-help"
+               required>
+        <small id="points-help">
+            Enter a positive whole number. Infractions subtract points.
+        </small>
+
+        <label for="eventDate">Event date</label>
+        <input id="eventDate" name="eventDate" type="date"
+               th:value="${form != null ? form.eventDate : null}"
+               required>
+
+        <label for="comments">Additional details</label>
+        <textarea id="comments" name="comments"
+                  maxlength="255" rows="4"
+                  aria-describedby="comments-help"
+                  th:text="${form != null ? form.comments : ''}"></textarea>
+        <small id="comments-help">
+            Required for infractions; optional for bonuses.
+        </small>
+
+        <label for="enteredBy">Entered by</label>
+        <input id="enteredBy" name="enteredBy"
+               type="text" maxlength="255"
+               th:value="${form != null ? form.enteredBy : null}"
+               aria-describedby="entered-by-help"
+               required>
+        <small id="entered-by-help">
+            Temporary name entry until supervisor selection is connected.
+        </small>
+
+        <button type="submit">Review entry</button>
+    </form>
+</main>
+</body>
+</html>

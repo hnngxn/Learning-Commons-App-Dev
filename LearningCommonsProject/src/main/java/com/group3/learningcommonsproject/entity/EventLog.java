@@ -29,4 +29,19 @@ public class EventLog {
     @Column(name = "event_date")
     private LocalDate eventDate;
     private String comments;
+
+    @Column(name = "submission_token", length = 36, unique = true)
+    private String submissionToken;
+
+    @Column(name = "balance_after")
+    private Integer balanceAfter;
+
+    @Column(name = "position_at_entry", length = 255)
+    private String positionAtEntry;
+
+    @Column(name = "supervisor_at_entry", length = 255)
+    private String supervisorAtEntry;
+
+    @Column(name = "entered_by", length = 255)
+    private String enteredBy;
 }
