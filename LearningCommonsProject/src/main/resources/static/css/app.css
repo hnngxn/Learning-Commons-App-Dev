@@ -1,0 +1,44 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: #1a1a1a; background: #fff; }
+
+.topbar { height: 72px; background: #E00122; color: #fff; display: flex; align-items: center; gap: 20px; padding: 0 40px; }
+.topbar .back { width: 34px; height: 34px; border: 2px solid rgba(255,255,255,.8); color: #fff; text-decoration: none;
+    display: flex; align-items: center; justify-content: center; font-size: 18px; }
+.topbar .brand { font-size: 26px; }
+.topbar .crumb { margin-left: auto; font-family: monospace; font-size: 12px; letter-spacing: .08em; }
+
+.page { padding: 28px 40px; max-width: 1200px; }
+.page-head { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 18px; }
+h1 { font-size: 24px; margin: 0 0 4px; }
+.muted { color: #5c5c5c; font-size: 14px; margin: 0; }
+
+.btn { height: 44px; padding: 0 22px; font-size: 15px; font-weight: 600; display: inline-flex; align-items: center;
+    text-decoration: none; cursor: pointer; border: 2px solid #1a1a1a; }
+.btn-primary { background: #E00122; border-color: #E00122; color: #fff; }
+.btn-secondary { background: #fff; color: #1a1a1a; }
+
+.table { width: 100%; border-collapse: collapse; border: 1px solid #d6d6d4; }
+.table th { background: #1a1a1a; color: #fff; text-align: left; font-family: monospace; font-size: 12px;
+    letter-spacing: .08em; padding: 10px 16px; }
+.table td { padding: 12px 16px; border-bottom: 1px solid #ebebe9; font-size: 15px; }
+.table a { color: #E00122; }
+
+.badge { font-size: 12px; font-weight: 600; padding: 3px 8px; }
+.badge-active { background: #e3f4e6; color: #1e6b2e; }
+.badge-inactive { background: #ececeb; color: #5c5c5c; }
+
+.notice { padding: 12px 16px; margin: 0 0 16px; font-size: 14px; }
+.notice.success { background: #e3f4e6; border-left: 4px solid #1e6b2e; }
+.notice.error { background: #fdecee; border-left: 4px solid #E00122; }
+
+.form { display: flex; flex-direction: column; gap: 16px; max-width: 560px; margin-top: 20px; }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field > span { font-size: 14px; font-weight: 600; }
+.field em { color: #E00122; font-style: normal; font-weight: 500; }
+.field input[type=text], .field input[type=number] { height: 44px; border: 1px solid #8d8d8b; padding: 0 12px; font-size: 15px; }
+.field input:disabled { background: #f0f0ef; color: #6b6b69; }
+.row { display: flex; gap: 24px; }
+.row .field { flex: 1; }
+.radios { display: flex; gap: 28px; font-size: 15px; }
+.check { font-size: 15px; display: flex; gap: 10px; align-items: center; }
+.actions { display: flex; gap: 14px; margin-top: 8px; }
