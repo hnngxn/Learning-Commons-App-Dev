@@ -1,10 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>LC Points</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}">
 </head>
 <body>
+<header class="topbar topbar-home">
+    <span class="brand"><b>Learning</b> Commons</span>
+</header>
 
+<main class="page">
+    <h1>Staff Points</h1>
+    <p class="muted">Log a bonus or an infraction, or look up past entries.</p>
+
+    <div class="actions">
+        <a class="btn btn-primary" th:href="@{/entries/new}">Start new entry</a>
+        <a class="btn btn-secondary" th:href="@{/history}">Event history</a>
+    </div>
+
+    <section class="admin-tools">
+        <div class="admin-tools-head">Admin tools</div>
+        <div class="admin-tools-grid">
+            <a class="tool" th:href="@{/admin/bulk}">
+                <span class="tool-name">Bulk intake <span class="arrow">›</span></span>
+                <span class="muted">One event applied to many staff at once</span>
+            </a>
+            <a class="tool" th:href="@{/admin/dashboard}">
+                <span class="tool-name">Eligibility dashboard <span class="arrow">›</span></span>
+                <span class="muted">Totals and status for every student</span>
+            </a>
+            <a class="tool" th:href="@{/admin/event-types}">
+                <span class="tool-name">Point event types <span class="arrow">›</span></span>
+                <span class="muted">Add, rename or deactivate types</span>
+            </a>
+            <a class="tool" th:href="@{/admin/reset}">
+                <span class="tool-name">Semester reset <span class="arrow">›</span></span>
+                <span class="muted">Start a new semester and reset points</span>
+            </a>
+        </div>
+    </section>
+</main>
 </body>
 </html>
