@@ -28,7 +28,7 @@ public class StaffInfoService {
                 staffInfo.getPosition1() == null ||
                 staffInfo.getPosition2() == null ||
                 staffInfo.getSupervisor1() == null ||
-                staffInfo.getSupervisor1() == null ||
+                staffInfo.getSupervisor2() == null ||
                 staffInfo.getCurrentPoints() == null) {
             throw new BadRequest();
         }
