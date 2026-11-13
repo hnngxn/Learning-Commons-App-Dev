@@ -26,9 +26,7 @@ public class StaffInfoService {
         if (staffInfo.getFullName() == null ||
                 staffInfo.getEmail() == null ||
                 staffInfo.getPosition1() == null ||
-                staffInfo.getPosition2() == null ||
                 staffInfo.getSupervisor1() == null ||
-                staffInfo.getSupervisor2() == null ||
                 staffInfo.getCurrentPoints() == null) {
             throw new BadRequest();
         }
@@ -39,21 +37,20 @@ public class StaffInfoService {
     }
 
     @Transactional
-    public ResponseEntity<StaffInfoDto> updateStaffInfo(Long id, StaffInfoDto data) {
+    public StaffInfoDto updateStaffInfo(Long id, StaffInfoDto data) {
         if (data == null) throw new BadRequest();
 
         var staffInfo = staffInfoRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException());
         staffInfoMapper.update(data, staffInfo);
         staffInfoRepository.save(staffInfo);
-        return ResponseEntity.ok(staffInfoMapper.toDto(staffInfo));
+        return staffInfoMapper.toDto(staffInfo);
     }
 
     @Transactional
-    public ResponseEntity<Void> deleteStaffInfo(Long id) {
+    public void deleteStaffInfo(Long id) {
         var staffInfo = staffInfoRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException());
 
         staffInfoRepository.delete(staffInfo);
-        return ResponseEntity.noContent().build();
     }
 }

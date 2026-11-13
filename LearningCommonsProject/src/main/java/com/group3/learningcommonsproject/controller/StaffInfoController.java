@@ -33,7 +33,7 @@ public class StaffInfoController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<StaffInfoDto> updateStaffInfo(
+    public StaffInfoDto updateStaffInfo(
             @PathVariable(name="id") Long id,
             @RequestBody StaffInfoDto data
     ) {
@@ -42,7 +42,9 @@ public class StaffInfoController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteStaffInfo(@PathVariable Long id) {
-        return staffInfoService.deleteStaffInfo(id);
+        staffInfoService.deleteStaffInfo(id);
+
+        return ResponseEntity.noContent().build();
     }
 
 }
