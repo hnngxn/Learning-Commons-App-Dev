@@ -101,7 +101,7 @@
                     <url>jdbc:mysql://localhost:3307/learningCommonsDb?createDatabaseIfNotExist=true</url>
                     <user>root</user>
                     <!--Add your Password-->
-                    <password></password>
+                    <password>j959GGtsO5</password>
                     <cleanDisabled>false</cleanDisabled>
                 </configuration>
             </plugin>
