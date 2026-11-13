@@ -27,7 +27,7 @@ public class StaffInfo {
     @Column(nullable = false, name = "Supervisor_1")
     private String supervisor1;
 
-    @Column(nullable = false, name = "Position_2")
+    @Column(name = "Position_2")
     private String position2;
 
     @Column(name = "Supervisor_2")
