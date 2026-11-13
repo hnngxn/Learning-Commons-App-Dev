@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Point event types</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}">
+</head>
+<body>
+<header class="topbar">
+    <a class="back" href="javascript:history.back()">‹</a>
+    <span class="brand"><b>Learning</b> Commons</span>
+    <span class="crumb">ADMIN · POINT EVENT TYPES</span>
+</header>
+
+<main class="page">
+    <div class="page-head">
+        <div>
+            <h1>Point event types</h1>
+            <p class="muted">Inactive types are hidden from entry dropdowns but stay on old entries.</p>
+        </div>
+        <a class="btn btn-primary" th:href="@{/admin/event-types/new}">+ Add event type</a>
+    </div>
+
+    <p class="notice success" th:if="${message}" th:text="${message}">Saved.</p>
+
+    <table class="table">
+        <thead>
+        <tr><th>Name</th><th>Category</th><th>Min</th><th>Max</th><th>Status</th><th></th></tr>
+        </thead>
+        <tbody>
+        <tr th:each="event : ${eventTypes}">
+            <td th:text="${event.eventName}">Job Performance</td>
+            <td th:text="${event.eventType}">Bonus</td>
+            <td th:text="${event.minPoints}">1</td>
+            <td th:text="${event.maxPoints}">10</td>
+            <td>
+                <span th:class="${event.active} ? 'badge badge-active' : 'badge badge-inactive'"
+                      th:text="${event.active} ? 'Active' : 'Inactive'">Active</span>
+            </td>
+            <td><a th:href="@{/admin/event-types/{id}/edit(id=${event.id})}">Edit</a></td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+</body>
+</html>

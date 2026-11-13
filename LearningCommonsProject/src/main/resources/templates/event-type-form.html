@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Event type</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}">
+</head>
+<body>
+<header class="topbar">
+    <a class="back" href="javascript:history.back()">‹</a>
+    <span class="brand"><b>Learning</b> Commons</span>
+    <span class="crumb">ADMIN · POINT EVENT TYPES</span>
+</header>
+
+<main class="page">
+    <h1 th:text="${form.id == null} ? 'Add event type' : 'Edit event type'">Add event type</h1>
+
+    <p class="notice error" th:if="${error}" th:text="${error}">Error</p>
+
+    <form th:action="@{/admin/event-types/save}" th:object="${form}" method="post" class="form">
+        <input type="hidden" th:field="*{id}">
+
+        <label class="field">
+            <span>Name <em>· required</em></span>
+            <input type="text" th:field="*{eventName}" maxlength="100">
+        </label>
+
+        <!-- Add mode: pick a category -->
+        <div class="field" th:if="${form.id == null}">
+            <span>Category <em>· required</em></span>
+            <div class="radios">
+                <label><input type="radio" th:field="*{eventType}" value="Bonus"> Bonus: adds points</label>
+                <label><input type="radio" th:field="*{eventType}" value="Infraction"> Infraction: subtracts points</label>
+            </div>
+        </div>
+
+        <!-- Edit mode: category is locked -->
+        <div class="field" th:if="${form.id != null}">
+            <span>Category</span>
+            <input type="hidden" th:field="*{eventType}">
+            <input type="text" th:value="*{eventType}" disabled>
+            <small class="muted">Category can't be changed after it's created.</small>
+        </div>
+
+        <div class="row">
+            <label class="field">
+                <span>Min points <em>· required</em></span>
+                <input type="number" step="1" th:field="*{minPoints}">
+            </label>
+            <label class="field">
+                <span>Max points <em>· required</em></span>
+                <input type="number" step="1" th:field="*{maxPoints}">
+            </label>
+        </div>
+        <small class="muted">Infractions use negative numbers, for example -20 to -1.</small>
+
+        <!-- Edit mode only: deactivate instead of delete -->
+        <label class="check" th:if="${form.id != null}">
+            <input type="checkbox" th:field="*{active}"> Active (uncheck to hide from entry dropdowns)
+        </label>
+
+        <div class="actions">
+            <a class="btn btn-secondary" th:href="@{/admin/event-types}">Cancel</a>
+            <button class="btn btn-primary" type="submit">Save</button>
+        </div>
+    </form>
+</main>
+</body>
+</html>
