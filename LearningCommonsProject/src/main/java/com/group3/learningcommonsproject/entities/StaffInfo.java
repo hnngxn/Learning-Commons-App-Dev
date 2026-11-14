@@ -2,6 +2,8 @@ package com.group3.learningcommonsproject.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "staff_information")
@@ -30,11 +32,11 @@ public class StaffInfo {
     @Column(nullable = false, name = "Current_Points")
     private int currentPoints;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "staff_programs",
             joinColumns = @JoinColumn(name = "staff_id"),
             inverseJoinColumns = @JoinColumn(name = "program_id")
     )
-    private java.util.List<Program> programs;
+    private Set<Program> programs = new HashSet<>();
 }

@@ -3,9 +3,9 @@ spring:
     name: DbApplication
   datasource:
 #   Change your localhost port number
-    url: jdbc:mysql://localhost:3306/LearningCommonsDB?createDatabaseIfNotExist=true
+    url: jdbc:mysql://localhost:/LearningCommonsDB?createDatabaseIfNotExist=true
     username: root
 #   Add Your Password
-    password: Thonau7705:)
+    password:
   jpa:
     show-sql: true

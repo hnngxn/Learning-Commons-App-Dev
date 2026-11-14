@@ -5,6 +5,7 @@ import com.group3.learningcommonsproject.errorResponses.ResourceNotFoundExceptio
 import com.group3.learningcommonsproject.repositories.StaffInfoRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,7 +24,10 @@ public class StaffInfoController {
     }
 
     @GetMapping("/filter")
-    public java.util.List<StaffInfo> getStaffByProgram(@RequestParam Long programId) {
-        return staffInfoRepository.findByPrograms_Id(programId);
+    public ResponseEntity<List<StaffInfo>> filterStaffByProgram(@RequestParam(required = false) Long programId) {
+        if (programId == null) {
+            return ResponseEntity.ok(staffInfoRepository.findAll());
+        }
+        return ResponseEntity.ok(staffInfoRepository.findByPrograms_Id(programId));
     }
 }
