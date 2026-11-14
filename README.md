@@ -3,7 +3,12 @@
 **Getting Started**
 * To setup the MySQL, you'll have to go to the command line and run 'mvnw flyway:migrate' to migrate the database to your devices/servers.
 * If you want to use the GUI (Graphical User Interface) then you go to Maven, "database name", plugins, flyway, flyway:migrate on IntelliJ.
-* On the application.yaml file under Datasource, make sure the url is your database url, the username is the root user or the main user, then change the password to that user's password.
+* Database credentials come from environment variables, so nobody has to type a password into a committed file. In IntelliJ: Run > Edit Configurations > DbApplication > Environment variables, and set:
+	* `DB_PASSWORD`: your MySQL password (required unless it's blank)
+	* `DB_URL`: only if your MySQL isn't on port 3307, e.g. `jdbc:mysql://localhost:3306/LearningCommonsDB?createDatabaseIfNotExist=true`
+	* `DB_USERNAME`: only if you don't use `root`
+* Starting the app also runs any pending Flyway migrations automatically, so `flyway:migrate` is optional.
+* To run the unit tests without a database: `./mvnw test -Dtest=PointEventServiceTest` (from the `LearningCommonsProject` folder).
 * If you run the application by pressing the green arrow in IntelliJ, it should run the new point app and you will be able to add points to the staff.
 * If you want to test the application before you add all of the data to the tables, then you just need to run the app and add a test user to soak up all of the points so you can test whatever is needed.
 
