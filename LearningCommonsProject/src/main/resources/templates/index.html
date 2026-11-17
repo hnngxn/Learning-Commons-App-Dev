@@ -1,10 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Homepage</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}">
 </head>
 <body>
+<header class="topbar">
+    <span class="brand"><b>Learning</b> Commons</span>
+    <span class="crumb">ADMIN · HOME</span>
+</header>
 
+<main class="page home">
+    <section class="hero">
+        <p class="eyebrow">LEARNING COMMONS</p>
+        <h1>Admin Portal</h1>
+        <p class="hero-copy">Manage the point events used to recognize participation and support the Learning Commons community.</p>
+        <a class="btn btn-primary" href="/admin/event-types">Manage event types <span aria-hidden="true">→</span></a>
+    </section>
+
+    <section class="home-section" aria-labelledby="admin-tools-heading">
+        <div class="section-heading">
+            <p class="eyebrow">ADMINISTRATION</p>
+            <h2 id="admin-tools-heading">Admin tools</h2>
+        </div>
+        <a class="tool-card" href="/admin/event-types">
+            <span class="tool-icon" aria-hidden="true">+</span>
+            <span>
+                <strong>Point event types</strong>
+                <small>Create, edit, and deactivate the events that award or deduct points.</small>
+            </span>
+            <span class="tool-arrow" aria-hidden="true">→</span>
+        </a>
+    </section>
+</main>
 </body>
 </html>
