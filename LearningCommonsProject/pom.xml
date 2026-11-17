@@ -64,7 +64,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <scope>annotationProcessor</scope>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.mapstruct</groupId>
@@ -84,10 +84,25 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webmvc</artifactId>
         </dependency>
+
     </dependencies>
 
     <build>
         <plugins>
+            <!-- Code Change #1 - Add lombok annotation processor, application did not start without this -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>1.18.46</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -98,10 +113,10 @@
                 <version>12.4.0</version>
                 <configuration>
                     <!--Change the localhost port number to match your database-->
-                    <url>jdbc:mysql://localhost:3307/learningCommonsDb?createDatabaseIfNotExist=true</url>
+                    <url>jdbc:mysql://localhost:3306/learningCommonsDb?createDatabaseIfNotExist=true</url>
                     <user>root</user>
                     <!--Add your Password-->
-                    <password></password>
+                    <password>P@ssw0rd</password>
                     <cleanDisabled>false</cleanDisabled>
                 </configuration>
             </plugin>

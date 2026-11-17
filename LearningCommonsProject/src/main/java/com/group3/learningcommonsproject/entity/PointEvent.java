@@ -7,7 +7,9 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "Point_Events")
-@Getter @Setter @NoArgsConstructor
+@Getter
+@Setter
+@NoArgsConstructor
 public class PointEvent {
 
     @Id
