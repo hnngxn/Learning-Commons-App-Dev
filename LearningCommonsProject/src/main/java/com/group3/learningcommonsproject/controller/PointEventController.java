@@ -33,7 +33,7 @@ public class PointEventController {
     @PostMapping
     public PointEventDto createPointEvent(@RequestBody PointEventDto request) {
         PointEvent event = new PointEvent();
-        event.setEventName(request.getEventName());
+        event.setEventName(request.getEventName().trim());
         event.setEventType(request.getEventType());
         event.setMinPoints(request.getMinPoints());
         event.setMaxPoints(request.getMaxPoints());

@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor
 public class PointEventDto {
     private Long id;
-    private String eventName ;
+    private String eventName;
     private String eventType;
     private int minPoints;
     private int maxPoints;
