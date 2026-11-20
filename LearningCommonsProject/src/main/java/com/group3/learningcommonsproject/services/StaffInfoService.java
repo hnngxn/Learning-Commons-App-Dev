@@ -28,7 +28,7 @@ public class StaffInfoService {
                 staffInfo.getPosition1() == null ||
                 staffInfo.getSupervisor1() == null ||
                 staffInfo.getCurrentPoints() == null) {
-            throw new BadRequest();
+            throw new BadRequest("Make sure all fields except position 2 and supervisor 2 are filled in!");
         }
         //endregion
 
@@ -38,12 +38,12 @@ public class StaffInfoService {
 
     @Transactional
     public StaffInfoDto updateStaffInfo(Long id, StaffInfoDto data) {
-        if (data == null) throw new BadRequest();
+        if (data == null) throw new BadRequest("Nothing Exists!");
 
         var staffInfo = staffInfoRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException());
         staffInfoMapper.update(data, staffInfo);
         staffInfoRepository.save(staffInfo);
-        return staffInfoMapper.toDto(staffInfo );
+        return staffInfoMapper.toDto(staffInfo);
     }
 
     @Transactional
