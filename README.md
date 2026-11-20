@@ -1,3 +1,23 @@
+## For Code Reviewers (start here)
+
+**Getting Started**
+* To setup the MySQL, you'll have to go to the command line and run 'mvnw flyway:migrate' to migrate the database to your devices/servers.
+* If you want to use the GUI (Graphical User Interface) then you go to Maven, "database name", plugins, flyway, flyway:migrate on IntelliJ.
+* On the application.yaml file under Datasource, make sure the url is your database url, the username is the root user or the main user, then change the password to that user's password.
+* If you run the application by pressing the green arrow in IntelliJ, it should run the new point app and you will be able to add points to the staff.
+* If you want to test the application before you add all of the data to the tables, then you just need to run the app and add a test user to soak up all of the points so you can test whatever is needed.
+
+**Code Review Access**
+* Code reviewers have been added as collaborators. Accept the invite from your email or GitHub notifications first.
+* To review:
+	1. Clone the repo: git clone https://github.com/hnngxn/Learning-Commons-App-Dev.git
+	2. Create your own branch from `main`, for example: review/your-name
+	3. Commit and push your changes to that branch
+	4. Open a pull request into `main` and add your comments there
+* Please do not push directly to `main`.
+
+---
+
 **1. Title and Group Members**
 * Title: Learning Commons Cloud System
 * Team Members: Han Nguyen, Saurav Poudel, Uyen Duong, Van Diep, Jaxon Zaleski    

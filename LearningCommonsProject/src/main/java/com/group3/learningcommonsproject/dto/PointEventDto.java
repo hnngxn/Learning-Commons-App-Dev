@@ -11,4 +11,5 @@ public class PointEventDto {
     private String eventType;
     private int minPoints;
     private int maxPoints;
+    private boolean active = true;
 }
