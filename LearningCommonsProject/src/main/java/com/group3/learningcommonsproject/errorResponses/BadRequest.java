@@ -1,12 +1,9 @@
 package com.group3.learningcommonsproject.errorResponses;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ResponseStatus;
-
-@ResponseStatus(value = HttpStatus.BAD_REQUEST, reason = "Bad Request")
+// Thrown when a request breaks a business rule. The message is safe to show to the user:
+// the page controller puts it on the form, and ApiExceptionHandler returns it as JSON.
 public class BadRequest extends RuntimeException {
-    //For methods that don't reuturn ResponseEntity
-    public BadRequest() {
-        super();
+    public BadRequest(String message) {
+        super(message);
     }
 }
