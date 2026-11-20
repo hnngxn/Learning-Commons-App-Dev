@@ -3,6 +3,7 @@ package com.group3.learningcommonsproject.controller;
 import com.group3.learningcommonsproject.dto.PointEventDto;
 import com.group3.learningcommonsproject.entity.PointEvent;
 import com.group3.learningcommonsproject.repository.PointEventRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.data.domain.Sort;
 import com.group3.learningcommonsproject.errorResponses.ResourceNotFoundException;
@@ -28,10 +29,11 @@ public class PointEventController {
             }
         return result;
         }
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     public PointEventDto createPointEvent(@RequestBody PointEventDto request) {
         PointEvent event = new PointEvent();
-        event.setEventName(request.getEventName());
+        event.setEventName(request.getEventName().trim());
         event.setEventType(request.getEventType());
         event.setMinPoints(request.getMinPoints());
         event.setMaxPoints(request.getMaxPoints());
