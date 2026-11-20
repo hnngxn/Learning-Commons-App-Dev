@@ -43,7 +43,7 @@ public class StaffInfoService {
         var staffInfo = staffInfoRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException());
         staffInfoMapper.update(data, staffInfo);
         staffInfoRepository.save(staffInfo);
-        return staffInfoMapper.toDto(staffInfo);
+        return staffInfoMapper.toDto(staffInfo );
     }
 
     @Transactional
