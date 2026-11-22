@@ -1,17 +1,13 @@
-package com.group3.learningcommonsproject.services;
+package com.group3.learningcommonsproject.service;
 
 import com.group3.learningcommonsproject.dto.StaffInfoDto;
-import com.group3.learningcommonsproject.entity.StaffInfo;
 import com.group3.learningcommonsproject.errorResponses.BadRequest;
 import com.group3.learningcommonsproject.errorResponses.ResourceNotFoundException;
 import com.group3.learningcommonsproject.mapper.StaffInfoMapper;
 import com.group3.learningcommonsproject.repository.StaffInfoRepository;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @Service
 @AllArgsConstructor

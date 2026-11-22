@@ -2,10 +2,8 @@ package com.group3.learningcommonsproject.controller;
 
 import com.group3.learningcommonsproject.dto.StaffInfoDto;
 import com.group3.learningcommonsproject.entity.StaffInfo;
-import com.group3.learningcommonsproject.errorResponses.ResourceNotFoundException;
-import com.group3.learningcommonsproject.mapper.StaffInfoMapper;
 import com.group3.learningcommonsproject.repository.StaffInfoRepository;
-import com.group3.learningcommonsproject.services.StaffInfoService;
+import com.group3.learningcommonsproject.service.StaffInfoService;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
