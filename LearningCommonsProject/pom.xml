@@ -112,12 +112,19 @@
                 <artifactId>flyway-maven-plugin</artifactId>
                 <version>12.4.0</version>
                 <configuration>
-                    <!--Change the localhost port number to match your database-->
+                         
+                    <!-- Change the localhost port to match your local database configuration.
+                    Do not commit machine-specific URL changes to source control. -->
                     <url>jdbc:mysql://localhost:3307/learningCommonsDb?createDatabaseIfNotExist=true</url>
                     <user>root</user>
-                    <!--Add your Password-->
-                    <password>j959GGtsO5</password>
-                    <cleanDisabled>false</cleanDisabled>
+                         
+                    <!-- Add your local password. Do not commit or push passwords to source control. -->
+                    <password></password>
+
+                    <!-- WARNING: Only set to false for local development databases.
+                    Never commit false for shared, staging, QA, or production environments,
+                    as flyway:clean will drop the entire schema. -->
+                    <cleanDisabled>true</cleanDisabled>
                 </configuration>
             </plugin>
         </plugins>
