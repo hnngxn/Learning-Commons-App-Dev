@@ -20,7 +20,7 @@ public class StaffInfoController {
 
     @GetMapping
     public List<StaffInfo> getAllStaffInfo(
-            @RequestParam(required = false, defaultValue = "FullName") String sort
+            @RequestParam(required = false, defaultValue = "fullName") String sort
     ) {
         return staffInfoRepository.findAll(Sort.by(sort));
     }
