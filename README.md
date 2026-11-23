@@ -125,8 +125,8 @@ The user begins by selecting a staff member and choosing whether to record a bon
 
 **Screen Mockups**
 
-[View Fall 2026 Mockups](./docs/UCLCMockups.pdf)
-[View Full Vision Mockups (handoff, includes future enhancements)](./docs/UCLCMockupsFullVersion.pdf)
+* [View Fall 2026 Mockups](./docs/UCLCMockups.pdf)
+* [View Full Vision Mockups (handoff, includes future enhancements)](./docs/UCLCMockupsFullVersion.pdf)
 
 **6. Class Diagram**
 
