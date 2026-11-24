@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ProjectModuleManager">
-    <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Learning-Commons-App-Dev.iml" filepath="$PROJECT_DIR$/.idea/Learning-Commons-App-Dev.iml" />
-      <module fileurl="file://$PROJECT_DIR$/LearningCommonsProject/LearningCommonsProject.iml" filepath="$PROJECT_DIR$/LearningCommonsProject/LearningCommonsProject.iml" />
-    </modules>
-  </component>
-</project>
