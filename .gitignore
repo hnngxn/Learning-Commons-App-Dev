@@ -1,0 +1,6 @@
+# IntelliJ project files are per-developer; each person regenerates their own
+.idea/
+*.iml
+
+# macOS
+.DS_Store

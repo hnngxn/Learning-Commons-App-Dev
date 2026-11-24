@@ -1,3 +1,28 @@
+## For Code Reviewers (start here)
+
+**Getting Started**
+* To setup the MySQL, you'll have to go to the command line and run 'mvnw flyway:migrate' to migrate the database to your devices/servers.
+* If you want to use the GUI (Graphical User Interface) then you go to Maven, "database name", plugins, flyway, flyway:migrate on IntelliJ.
+* Database credentials come from environment variables, so nobody has to type a password into a committed file. In IntelliJ: Run > Edit Configurations > DbApplication > Environment variables, and set:
+	* `DB_PASSWORD`: your MySQL password (required unless it's blank)
+	* `DB_URL`: only if your MySQL isn't on port 3307, e.g. `jdbc:mysql://localhost:3306/LearningCommonsDB?createDatabaseIfNotExist=true`
+	* `DB_USERNAME`: only if you don't use `root`
+* Starting the app also runs any pending Flyway migrations automatically, so `flyway:migrate` is optional.
+* To run the unit tests without a database: `./mvnw test -Dtest=PointEventServiceTest` (from the `LearningCommonsProject` folder).
+* If you run the application by pressing the green arrow in IntelliJ, it should run the new point app and you will be able to add points to the staff.
+* If you want to test the application before you add all of the data to the tables, then you just need to run the app and add a test user to soak up all of the points so you can test whatever is needed.
+
+**Code Review Access**
+* Code reviewers have been added as collaborators. Accept the invite from your email or GitHub notifications first.
+* To review:
+	1. Clone the repo: git clone https://github.com/hnngxn/Learning-Commons-App-Dev.git
+	2. Create your own branch from `main`, for example: review/your-name
+	3. Commit and push your changes to that branch
+	4. Open a pull request into `main` and add your comments there
+* Please do not push directly to `main`.
+
+---
+
 **1. Title and Group Members**
 * Title: Learning Commons Cloud System
 * Team Members: Han Nguyen, Saurav Poudel, Uyen Duong, Van Diep, Jaxon Zaleski    
@@ -100,7 +125,8 @@ The user begins by selecting a staff member and choosing whether to record a bon
 
 **Screen Mockups**
 
-[View Screen Mockups](./docs/UCLCMockups.pdf)
+* [View Fall 2026 Mockups](./docs/UCLCMockups.pdf)
+* [View Full Vision Mockups (handoff, includes future enhancements)](./docs/UCLCMockupsFullVersion.pdf)
 
 **6. Class Diagram**
 

@@ -2,10 +2,11 @@ spring:
   application:
     name: DbApplication
   datasource:
-#   Change your localhost port number
-    url: jdbc:mysql://localhost:3307/LearningCommonsDB?createDatabaseIfNotExist=true
-    username: root
-#   Add Your Password
-    password:
+    # Set DB_URL, DB_USERNAME and DB_PASSWORD as environment variables (or in your IntelliJ
+    # run configuration) instead of editing this file, so passwords never get committed.
+    # The values after the colon are local defaults used when a variable isn't set.
+    url: ${DB_URL:jdbc:mysql://localhost:3307/LearningCommonsDB?createDatabaseIfNotExist=true}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:}
   jpa:
     show-sql: true
