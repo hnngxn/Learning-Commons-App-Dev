@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS Programs (
                                         id BIGINT AUTO_INCREMENT PRIMARY KEY,
-                                        programName VARCHAR(255) NOT NULL
+                                        program_name VARCHAR(255) NOT NULL
     );
 
 CREATE TABLE IF NOT EXISTS staff_programs (
@@ -13,9 +13,9 @@ CREATE TABLE IF NOT EXISTS staff_programs (
     FOREIGN KEY (program_id) REFERENCES Programs(id)
     );
 
-INSERT INTO Programs (programName)
+INSERT INTO Programs (program_name)
 SELECT * FROM (
-                  SELECT 'Academic Coaching' AS programName
+                  SELECT 'Academic Coaching' AS program_name
                   UNION ALL SELECT 'Success Skills Workshops'
                   UNION ALL SELECT 'Academic Writing Center'
                   UNION ALL SELECT 'Learning Assistants'
@@ -27,5 +27,5 @@ SELECT * FROM (
                   UNION ALL SELECT 'Peer Tutoring'
               ) AS seed_programs
 WHERE NOT EXISTS (
-    SELECT 1 FROM Programs p WHERE p.programName = seed_programs.programName
+    SELECT 1 FROM Programs p WHERE p.program_name = seed_programs.program_name
 );

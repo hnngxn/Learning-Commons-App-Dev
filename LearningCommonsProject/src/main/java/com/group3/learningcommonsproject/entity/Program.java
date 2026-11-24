@@ -19,7 +19,7 @@ public class Program {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "programName", nullable = false)
+    @Column(name = "program_name", nullable = false)
     private String programName;
 
     @JsonIgnore
