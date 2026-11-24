@@ -11,6 +11,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import jakarta.validation.Valid;
+import org.springframework.web.server.ResponseStatusException;
+
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -24,9 +26,14 @@ public class StaffInfoController {
     @GetMapping
     public List<StaffInfoDto> getAllStaffInfo(
             @RequestParam(required = false, defaultValue = "fullName")
-            @Pattern(regexp = "^(fullName|email|employeeId)$")
             String sortBy
     ) {
+        if (!sortBy.matches("^(fullName|email|employeeId)$")) {
+            throw new ResponseStatusException(
+                    HttpStatus.BAD_REQUEST,
+                    "Invalid sortBy parameter"
+            );
+        }
         return staffInfoService.getAllStaffInfo(sortBy);
     }
 
