@@ -42,3 +42,16 @@ h1 { font-size: 24px; margin: 0 0 4px; }
 .radios { display: flex; gap: 28px; font-size: 15px; }
 .check { font-size: 15px; display: flex; gap: 10px; align-items: center; }
 .actions { display: flex; gap: 14px; margin-top: 8px; }
+
+/* Home page (01) */
+.topbar-home { height: 96px; padding: 0 64px; }
+.topbar-home .brand { font-size: 40px; }
+.admin-tools { border: 1px solid #1a1a1a; margin-top: 36px; }
+.admin-tools-head { background: #1a1a1a; color: #fff; padding: 12px 22px; font-weight: 600; }
+.admin-tools-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+.tool { padding: 20px 22px; border-right: 1px solid #e2e2e0; display: flex; flex-direction: column; gap: 6px;
+    text-decoration: none; color: #1a1a1a; }
+.tool:last-child { border-right: none; }
+.tool:hover { background: #f7f7f6; }
+.tool-name { font-size: 17px; font-weight: 600; text-decoration: underline; display: flex; }
+.tool-name .arrow { margin-left: auto; color: #E00122; text-decoration: none; }
