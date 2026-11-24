@@ -7,7 +7,9 @@ import com.group3.learningcommonsproject.mapper.StaffInfoMapper;
 import com.group3.learningcommonsproject.repository.StaffInfoRepository;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import java.util.List;
 
 @Service
 @AllArgsConstructor
@@ -48,5 +50,12 @@ public class StaffInfoService {
                 .orElseThrow(() -> new ResourceNotFoundException());
 
         staffInfoRepository.delete(staffInfo);
+    }
+
+    public List<StaffInfoDto> getAllStaffInfo(String sortBy) {
+        return staffInfoRepository.findAll(Sort.by(sortBy))
+                .stream()
+                .map(staffInfoMapper::toDto)
+                .toList();
     }
 }
