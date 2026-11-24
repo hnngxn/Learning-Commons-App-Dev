@@ -5,17 +5,16 @@ import com.group3.learningcommonsproject.entity.StaffInfo;
 import com.group3.learningcommonsproject.repository.StaffInfoRepository;
 import com.group3.learningcommonsproject.service.StaffInfoService;
 import lombok.AllArgsConstructor;
-import org.springframework.data.domain.Sort;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+import jakarta.validation.Valid;
 import java.util.List;
 
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/staff-information")
 public class StaffInfoController {
-    private final StaffInfoRepository staffInfoRepository;
     private final StaffInfoService staffInfoService;
 
     @GetMapping
@@ -26,14 +25,15 @@ public class StaffInfoController {
     }
 
     @PostMapping
-    public StaffInfoDto createStaffInfo(@RequestBody StaffInfoDto data) {
+    @ResponseStatus(HttpStatus.CREATED)
+    public StaffInfoDto createStaffInfo(@Valid @RequestBody StaffInfoDto data) {
         return staffInfoService.createStaffInfo(data);
     }
 
-    @PutMapping("{id}")
+    @PutMapping("/{id}")
     public StaffInfoDto updateStaffInfo(
-            @PathVariable(name="id") Long id,
-            @RequestBody StaffInfoDto data
+            @PathVariable Long id,
+            @Valid @RequestBody StaffInfoDto data
     ) {
         return staffInfoService.updateStaffInfo(id, data);
     }
