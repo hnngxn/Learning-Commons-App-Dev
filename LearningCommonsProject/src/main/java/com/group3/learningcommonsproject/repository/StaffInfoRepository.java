@@ -1,11 +1,11 @@
-package com.group3.learningcommonsproject.repositories;
+package com.group3.learningcommonsproject.repository;
 
 import jakarta.persistence.LockModeType;
 import org.springframework.data.jpa.repository.Lock;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import java.util.Optional;
-import com.group3.learningcommonsproject.entities.StaffInfo;
+import com.group3.learningcommonsproject.entity.StaffInfo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 

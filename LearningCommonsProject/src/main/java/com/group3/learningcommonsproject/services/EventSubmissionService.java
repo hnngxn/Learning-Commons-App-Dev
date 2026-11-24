@@ -2,7 +2,7 @@ package com.group3.learningcommonsproject.services;
 
 import com.group3.learningcommonsproject.dto.EventSubmissionRequest;
 import com.group3.learningcommonsproject.entity.EventLog;
-import com.group3.learningcommonsproject.repositories.StaffInfoRepository;
+import com.group3.learningcommonsproject.repository.StaffInfoRepository;
 import com.group3.learningcommonsproject.repository.EventLogRepository;
 import com.group3.learningcommonsproject.repository.PointEventRepository;
 import org.springframework.http.HttpStatus;

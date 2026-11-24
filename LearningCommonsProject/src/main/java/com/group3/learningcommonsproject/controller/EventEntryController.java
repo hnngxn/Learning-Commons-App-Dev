@@ -1,7 +1,7 @@
 package com.group3.learningcommonsproject.controller;
 
 import com.group3.learningcommonsproject.dto.EventSubmissionRequest;
-import com.group3.learningcommonsproject.repositories.StaffInfoRepository;
+import com.group3.learningcommonsproject.repository.StaffInfoRepository;
 import com.group3.learningcommonsproject.repository.PointEventRepository;
 import com.group3.learningcommonsproject.services.EventSubmissionService;
 import com.group3.learningcommonsproject.services.PointCalculationService;
