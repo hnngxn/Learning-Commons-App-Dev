@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Review entry | LC Points</title>
+    <style>
+        body {
+            margin: 0;
+            background: #f5f6f8;
+            color: #202b3c;
+            font-family: system-ui, sans-serif;
+        }
+        header {
+            padding: 20px 32px;
+            background: #172d46;
+            color: white;
+            font-weight: 700;
+        }
+        main {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 24px;
+        }
+        .card {
+            background: white;
+            padding: 24px;
+            margin: 24px 0;
+            border: 1px solid #dce2e9;
+            border-radius: 10px;
+        }
+        dl {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 16px;
+            margin: 0;
+        }
+        dt { font-weight: 600; }
+        dd { margin: 0; overflow-wrap: anywhere; }
+        .notice {
+            padding: 16px;
+            background: #fff4d9;
+            border-left: 4px solid #a66a00;
+        }
+        .actions { display: flex; gap: 12px; align-items: center; }
+        button, .back {
+            padding: 12px 20px;
+            border: 1px solid #214e79;
+            border-radius: 6px;
+            font: inherit;
+            cursor: pointer;
+        }
+        button { background: #214e79; color: white; }
+        button:disabled { opacity: .65; cursor: wait; }
+        .back { color: #214e79; text-decoration: none; }
+        @media (max-width: 540px) {
+            dl { grid-template-columns: 1fr; gap: 8px; }
+            dd { margin-bottom: 12px; }
+        }
+    </style>
+</head>
+<body>
+<header>LC Points · Learning Commons</header>
+
+<main>
+    <p>REVIEW</p>
+    <h1>Check before submitting</h1>
+    <p>Nothing has been saved yet.</p>
+
+    <section class="card" aria-label="Entry review">
+        <dl>
+            <dt>Staff member</dt>
+            <dd th:text="${staffName}"></dd>
+
+            <dt>Position</dt>
+            <dd th:text="${position}"></dd>
+
+            <dt>Supervisor of staff</dt>
+            <dd th:text="${supervisor}"></dd>
+
+            <dt>Entered by</dt>
+            <dd th:text="${draft.request.enteredBy}"></dd>
+
+            <dt>Event</dt>
+            <dd th:text="|${eventType}: ${eventName}|"></dd>
+
+            <dt>Points</dt>
+            <dd th:text="${pointsApplied > 0
+                ? '+' + pointsApplied : pointsApplied}"></dd>
+
+            <dt>Event date</dt>
+            <dd th:text="${draft.request.eventDate}"></dd>
+
+            <dt>Additional details</dt>
+            <dd th:text="${#strings.isEmpty(draft.request.comments)
+                ? 'None' : draft.request.comments}"></dd>
+
+            <dt>Estimated total</dt>
+            <dd>
+                <strong th:text="${projectedBalance}"></strong>
+                <span th:text="| · currently ${currentBalance}|"></span>
+            </dd>
+        </dl>
+    </section>
+
+    <p>
+        The total is recalculated when you submit because other entries
+        may change the employee’s balance.
+    </p>
+
+    <p class="notice">
+        Email notifications are not connected to this submission flow.
+    </p>
+
+    <form id="submit-form" method="post" th:action="@{/entries}">
+        <input type="hidden" name="token" th:value="${draft.token}">
+        <div class="actions">
+            <a class="back" th:href="@{/entries/edit}">Back</a>
+            <button id="submit-button" type="submit">Submit entry</button>
+        </div>
+    </form>
+</main>
+
+<script>
+    document.getElementById("submit-form").addEventListener("submit", () => {
+        const button = document.getElementById("submit-button");
+        button.disabled = true;
+        button.textContent = "Submitting…";
+    });
+
+    window.addEventListener("pageshow", () => {
+        const button = document.getElementById("submit-button");
+        button.disabled = false;
+        button.textContent = "Submit entry";
+    });
+</script>
+</body>
+</html>

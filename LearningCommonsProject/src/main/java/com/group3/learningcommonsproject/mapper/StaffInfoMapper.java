@@ -10,9 +10,13 @@ import org.mapstruct.MappingTarget;
 public interface StaffInfoMapper {
     StaffInfoDto toDto(StaffInfo staffInfo);
 
+    // Staff details updates must preserve program memberships.
+    @Mapping(target = "programs", ignore = true)
     @Mapping(target = "id", ignore = true)
     StaffInfo toEntity(StaffInfoDto staffInfoDto);
 
+    // Staff details updates must preserve program memberships.
+    @Mapping(target = "programs", ignore = true)
     @Mapping(target = "id", ignore = true)
     void update(StaffInfoDto staffInfoDto, @MappingTarget StaffInfo staffInfo);
 }

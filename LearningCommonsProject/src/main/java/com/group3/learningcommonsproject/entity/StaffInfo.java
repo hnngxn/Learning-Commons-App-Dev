@@ -35,4 +35,9 @@ public class StaffInfo {
 
     @Column(name = "Current_Points")
     private Integer currentPoints;
+    @ManyToMany
+    @JoinTable(name = "staff_programs",
+            joinColumns = @JoinColumn(name = "staff_id"),
+            inverseJoinColumns = @JoinColumn(name = "program_id"))
+    private java.util.Set<Program> programs = new java.util.HashSet<>();
 }

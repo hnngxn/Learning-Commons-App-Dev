@@ -1,3 +1,18 @@
+# Integration rehearsal branch
+
+This branch combines staff, programs, and point workflows for team review.
+Use a **fresh disposable database**; its proposed migration sequence is not an
+upgrade for existing feature-branch databases. Start with the
+[integration review guide](docs/staff-points-integration-review.md) for source
+PRs, migration conflicts, test commands, and remaining team decisions.
+
+Java 17 build/test: run `JAVA_HOME=$(/usr/libexec/java_home -v 17) bash mvnw -B clean verify`
+inside `LearningCommonsProject`. Tests use isolated H2; MySQL verification is
+documented in the guide. The point-entry UI starts at `/entries/new` after the
+app is configured against an explicitly prepared disposable MySQL database.
+
+---
+
 ## For Code Reviewers (start here)
 
 **Getting Started**
@@ -160,4 +175,3 @@ You need to submit both a document file and a link to this .md file on your GitH
 **9. GitHub project [link.](https://github.com/hnngxn/Learning-Commons-App-Dev/projects)** 
 
 **10. Each team must submit their GitHub repository and [GitHub Project board](https://github.com/hnngxn/Learning-Commons-App-Dev/projects). This will be used to track milestones, stories, and sprint tasks for your final project.**
-
