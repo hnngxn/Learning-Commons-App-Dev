@@ -84,6 +84,13 @@ public class EventSubmissionService {
             );
         }
 
+        // Legacy staff rows may not have a balance; require one before calculating.
+        if (employee.getCurrentPoints() == null) {
+            throw new ResponseStatusException(
+                    HttpStatus.CONFLICT, "The staff member has no point balance."
+            );
+        }
+
         int applied = calculator.calculatePointsApplied(event, request.points());
         int balanceAfter;
 

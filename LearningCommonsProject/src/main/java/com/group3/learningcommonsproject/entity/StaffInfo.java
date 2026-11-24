@@ -27,8 +27,8 @@ public class StaffInfo {
     @Column(nullable = false, name = "Supervisor_1")
     private String supervisor1;
 
-    @Column(nullable = false, name = "Current_Points")
-    private int currentPoints;
+    @Column(name = "Current_Points")
+    private Integer currentPoints;
 
     @ManyToMany
     @JoinTable(
