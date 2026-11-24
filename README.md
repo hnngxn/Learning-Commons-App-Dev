@@ -136,3 +136,28 @@ You need to submit both a document file and a link to this .md file on your GitH
 
 **10. Each team must submit their GitHub repository and [GitHub Project board](https://github.com/hnngxn/Learning-Commons-App-Dev/projects). This will be used to track milestones, stories, and sprint tasks for your final project.**
 
+## Raise eligibility lookup (PR #51)
+
+`GET /api/raise-eligibility` returns staff with at least 125 current points,
+ordered by points descending and staff ID ascending. Each row contains
+`staffId`, `fullName`, `currentPoints`, `eligibilityThreshold`, and `eligible`.
+No qualifying staff produces an empty JSON array. The endpoint only reads
+balances; it does not send notifications or change staff records.
+
+This branch depends on `Staff_Information`. Dashboard integration and automatic
+email delivery are separate work; this lookup does not complete the full #18 feature.
+
+Run the focused tests from the repository root (JDK 17 on macOS):
+
+```bash
+cd LearningCommonsProject
+JAVA_HOME=$(/usr/libexec/java_home -v 17) bash mvnw -Dtest=RaiseEligibilityRepositoryTest,RaiseEligibilityServiceTest,RaiseEligibilityControllerTest test
+```
+
+The seven tests cover the 124/125/126 boundary, stable ordering for equal
+balances, null balances, changes to eligibility, response mapping, and the
+empty HTTP response. Repository tests use disposable H2 tables with Flyway
+disabled; they do not connect to local MySQL. They validate JPA query behavior,
+not production MySQL migrations. Controller tests use MockMvc without starting
+the application or accessing a database.
+
