@@ -53,6 +53,13 @@ public class StaffInfoService {
         staffInfoRepository.delete(staffInfo);
     }
 
+    @Transactional
+    public List<StaffInfoDto> filterStaffByProgram(Long programId) {
+        var employees = programId == null ? staffInfoRepository.findAll()
+                : staffInfoRepository.findByPrograms_Id(programId);
+        return employees.stream().map(staffInfoMapper::toDto).toList();
+    }
+
     public List<StaffInfoDto> getAllStaffInfo(String sortBy) {
         return staffInfoRepository.findAll(Sort.by(sortBy))
                 .stream()

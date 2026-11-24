@@ -30,6 +30,11 @@ public class StaffInfoController {
         return staffInfoService.getAllStaffInfo(sortBy);
     }
 
+    @GetMapping("/filter")
+    public List<StaffInfoDto> filterStaffByProgram(@RequestParam(required = false) Long programId) {
+        return staffInfoService.filterStaffByProgram(programId);
+    }
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public StaffInfoDto createStaffInfo(@Valid @RequestBody StaffInfoDto data) {
