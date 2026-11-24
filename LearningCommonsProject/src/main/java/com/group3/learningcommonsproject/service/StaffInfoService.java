@@ -54,7 +54,15 @@ public class StaffInfoService {
     }
 
     public List<StaffInfoDto> getAllStaffInfo(String sortBy) {
-        return staffInfoRepository.findAll(Sort.by(sortBy))
+
+        String sortProperty = switch (sortBy) {
+            case "employeeId" -> "id";
+            default -> sortBy;
+        };
+
+        return staffInfoRepository.findAll(
+                        Sort.by(Sort.Direction.ASC, sortProperty)
+                )
                 .stream()
                 .map(staffInfoMapper::toDto)
                 .toList();
