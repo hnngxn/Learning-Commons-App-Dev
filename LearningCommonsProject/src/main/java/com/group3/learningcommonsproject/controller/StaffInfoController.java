@@ -1,8 +1,8 @@
-package com.group3.learningcommonsproject.controllers;
+package com.group3.learningcommonsproject.controller;
 
-import com.group3.learningcommonsproject.entities.StaffInfo;
+import com.group3.learningcommonsproject.entity.StaffInfo;
 import com.group3.learningcommonsproject.errorResponses.ResourceNotFoundException;
-import com.group3.learningcommonsproject.repositories.StaffInfoRepository;
+import com.group3.learningcommonsproject.repository.StaffInfoRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
