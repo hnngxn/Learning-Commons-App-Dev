@@ -1,4 +1,4 @@
-package com.group3.learningcommonsproject.entities;
+package com.group3.learningcommonsproject.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

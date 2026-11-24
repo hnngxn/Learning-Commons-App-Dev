@@ -1,9 +1,9 @@
 package com.group3.learningcommonsproject.services;
 
-import com.group3.learningcommonsproject.entities.StaffInfo;
+import com.group3.learningcommonsproject.entity.StaffInfo;
 import com.group3.learningcommonsproject.entity.EventLog;
 import com.group3.learningcommonsproject.entity.PointReversal;
-import com.group3.learningcommonsproject.repositories.StaffInfoRepository;
+import com.group3.learningcommonsproject.repository.StaffInfoRepository;
 import com.group3.learningcommonsproject.repository.EventLogRepository;
 import com.group3.learningcommonsproject.repository.PointReversalRepository;
 import jakarta.persistence.EntityManager;
