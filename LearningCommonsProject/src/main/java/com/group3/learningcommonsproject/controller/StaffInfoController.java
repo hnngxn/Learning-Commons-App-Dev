@@ -1,8 +1,6 @@
 package com.group3.learningcommonsproject.controller;
 
 import com.group3.learningcommonsproject.dto.StaffInfoDto;
-import com.group3.learningcommonsproject.entity.StaffInfo;
-import com.group3.learningcommonsproject.repository.StaffInfoRepository;
 import com.group3.learningcommonsproject.service.StaffInfoService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
