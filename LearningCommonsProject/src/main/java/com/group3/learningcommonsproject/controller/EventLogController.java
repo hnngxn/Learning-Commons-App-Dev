@@ -1,12 +1,11 @@
 package com.group3.learningcommonsproject.controller;
 
 import com.group3.learningcommonsproject.dto.EventLogDto;
-import com.group3.learningcommonsproject.entity.EventLog;
 import com.group3.learningcommonsproject.repository.EventLogRepository;
-import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-import java.util.stream.Collectors;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/event-logs")
@@ -20,13 +19,15 @@ public class EventLogController {
 
     @GetMapping
     public List<EventLogDto> getAllEventLogs() {
-        return repository.findAll().stream().map(log -> new EventLogDto(
-                log.getId(),
-                log.getStaff().getId(),
-                log.getPointEvent().getId(),
-                log.getPointsApplied(),
-                log.getEventDate(),
-                log.getComments()
-        )).collect(Collectors.toList());
+        return repository.findAll().stream()
+                .map(log -> new EventLogDto(
+                        log.getId(),
+                        log.getStaff() != null ? log.getStaff().getId() : null,
+                        log.getPointEvent() != null ? log.getPointEvent().getId() : null,
+                        log.getPointsApplied(),
+                        log.getEventDate(),
+                        log.getComments()
+                ))
+                .toList();
     }
 }
