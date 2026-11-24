@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Event history</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}">
+</head>
+<body>
+<header class="topbar">
+    <a class="back" th:href="@{/}">‹</a>
+    <span class="brand"><b>Learning</b> Commons</span>
+    <span class="crumb">STAFF POINTS · EVENT HISTORY</span>
+</header>
+
+<main class="page">
+    <div class="page-head">
+        <div>
+            <h1>Event history</h1>
+            <p class="muted">Past point entries logged across staff and point events.</p>
+        </div>
+        <a class="btn btn-primary" th:href="@{/entries/new}">+ Start new entry</a>
+    </div>
+
+    <p class="muted" th:if="${#lists.isEmpty(eventLogs)}">No event log entries found yet.</p>
+
+    <table class="table" th:unless="${#lists.isEmpty(eventLogs)}">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Date</th>
+            <th>Point Event ID</th>
+            <th>Staff ID</th>
+            <th>Points Applied</th>
+            <th>Comments</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="entry : ${eventLogs}">
+            <td th:text="${entry.id}">1</td>
+            <td th:text="${entry.eventDate}">2026-11-24</td>
+            <td th:text="${entry.pointEventId}">1</td>
+            <td th:text="${entry.staffId != null ? entry.staffId : '—'}">—</td>
+            <td th:text="${entry.pointsApplied}">10</td>
+            <td th:text="${entry.comments != null ? entry.comments : ''}">Sample comment</td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+</body>
+</html>

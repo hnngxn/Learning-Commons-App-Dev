@@ -14,7 +14,7 @@ public class EventLogPageController {
         this.eventLogService = eventLogService;
     }
 
-    @GetMapping("/event-history")
+    @GetMapping("/history")
     public String showEventHistory(Model model) {
         model.addAttribute("eventLogs", eventLogService.getAllEventLogs());
         return "event-history";
