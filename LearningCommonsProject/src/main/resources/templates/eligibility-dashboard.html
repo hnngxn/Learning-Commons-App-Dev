@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Eligibility dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}">
+</head>
+<body>
+<header class="topbar">
+    <a class="back" th:href="@{/}">‹</a>
+    <span class="brand"><b>Learning</b> Commons</span>
+    <span class="crumb">ADMIN · ELIGIBILITY DASHBOARD</span>
+</header>
+
+<main class="page">
+    <h1>Eligibility dashboard</h1>
+    <p class="muted" th:text="${totalStaff} + ' staff this semester'">10 staff this semester</p>
+
+    <div class="stats">
+        <div class="stat" th:each="s : ${statuses}">
+            <span class="stat-num" th:text="${counts.get(s) ?: 0}">2</span>
+            <span class="muted" th:text="${s}">Raise eligible</span>
+        </div>
+    </div>
+
+    <form class="filters" th:action="@{/admin/dashboard}" method="get">
+        <label class="field">
+            <span>Search name</span>
+            <input type="text" name="name" th:value="${name}" placeholder="Student name">
+        </label>
+        <label class="field">
+            <span>Position</span>
+            <select name="position">
+                <option value="">All</option>
+                <option th:each="p : ${positions}" th:value="${p}" th:text="${p}"
+                        th:selected="${p == position}">Tutor</option>
+            </select>
+        </label>
+        <label class="field">
+            <span>Status</span>
+            <select name="status">
+                <option value="">All</option>
+                <option th:each="s : ${statuses}" th:value="${s}" th:text="${s}"
+                        th:selected="${s == status}">Probation</option>
+            </select>
+        </label>
+        <button class="btn btn-primary" type="submit">Search</button>
+        <a class="clear" th:href="@{/admin/dashboard}">Clear</a>
+    </form>
+
+    <table class="table">
+        <thead>
+        <tr><th>Name</th><th>Position(s)</th><th>Supervisor(s)</th><th>Points</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+        <tr th:each="row : ${rows}">
+            <td th:text="${row.fullName}">Jordan Wells</td>
+            <td th:text="${row.positions}">Tutor</td>
+            <td th:text="${row.supervisors}">A. Ramirez</td>
+            <td th:text="${row.currentPoints}">115</td>
+            <td><span th:class="'badge badge-' + ${row.statusKey}" th:text="${row.status}">Good standing</span></td>
+        </tr>
+        <tr th:if="${rows.isEmpty()}">
+            <td colspan="5" class="muted">No staff match these filters.</td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+</body>
+</html>
