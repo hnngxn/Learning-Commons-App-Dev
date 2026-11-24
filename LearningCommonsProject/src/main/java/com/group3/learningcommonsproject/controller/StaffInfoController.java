@@ -1,37 +1,39 @@
 package com.group3.learningcommonsproject.controller;
 
 import com.group3.learningcommonsproject.dto.StaffInfoDto;
+import com.group3.learningcommonsproject.entity.StaffInfo;
+import com.group3.learningcommonsproject.repository.StaffInfoRepository;
 import com.group3.learningcommonsproject.service.StaffInfoService;
 import lombok.AllArgsConstructor;
-import org.springframework.http.HttpStatus;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import jakarta.validation.Valid;
+
 import java.util.List;
 
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/staff-information")
 public class StaffInfoController {
+    private final StaffInfoRepository staffInfoRepository;
     private final StaffInfoService staffInfoService;
 
     @GetMapping
-    public List<StaffInfoDto> getAllStaffInfo(
-            @RequestParam(required = false, defaultValue = "fullName") String sortBy
+    public List<StaffInfo> getAllStaffInfo(
+            @RequestParam(required = false, defaultValue = "fullName") String sort
     ) {
-        return staffInfoService.getAllStaffInfo(sortBy);
+        return staffInfoRepository.findAll(Sort.by(sort));
     }
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public StaffInfoDto createStaffInfo(@Valid @RequestBody StaffInfoDto data) {
+    public StaffInfoDto createStaffInfo(@RequestBody StaffInfoDto data) {
         return staffInfoService.createStaffInfo(data);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("{id}")
     public StaffInfoDto updateStaffInfo(
-            @PathVariable Long id,
-            @Valid @RequestBody StaffInfoDto data
+            @PathVariable(name="id") Long id,
+            @RequestBody StaffInfoDto data
     ) {
         return staffInfoService.updateStaffInfo(id, data);
     }
