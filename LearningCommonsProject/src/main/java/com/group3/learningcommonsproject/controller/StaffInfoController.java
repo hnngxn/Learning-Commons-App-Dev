@@ -19,10 +19,10 @@ public class StaffInfoController {
     private final StaffInfoService staffInfoService;
 
     @GetMapping
-    public List<StaffInfo> getAllStaffInfo(
-            @RequestParam(required = false, defaultValue = "fullName") String sort
+    public List<StaffInfoDto> getAllStaffInfo(
+            @RequestParam(required = false, defaultValue = "fullName") String sortBy
     ) {
-        return staffInfoRepository.findAll(Sort.by(sort));
+        return staffInfoService.getAllStaffInfo(sortBy);
     }
 
     @PostMapping
