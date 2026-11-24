@@ -28,8 +28,8 @@ From `LearningCommonsProject`:
 JAVA_HOME=$(/usr/libexec/java_home -v 17) bash mvnw -B clean -Dtest=EventSubmissionFlowTest,EventSubmissionServiceTest,PointCalculationServiceTest test
 ```
 
-The focused suite contains 26 cases: 9 flow checks, 4 existing submission
-service cases, and 13 point calculation cases. Flow checks cover:
+The focused suite contains 41 cases: 9 flow checks, 4 existing submission
+service cases, and 28 point calculation cases. Flow checks cover:
 
 - Bonus and infraction form → review → saved receipt, including balance and
   history assertions, receipt refresh, repeat POST, and opening another form.
@@ -47,7 +47,9 @@ The existing blank home page is outside these changes; the tested entry point
 is `/entries/new`.
 
 This branch depends on `event_log` and includes the point calculation work
-from #20. Its staff model retains the program association from that branch;
+from #20. The shared calculation service and its 28 tests match PR #52;
+review that PR as the calculation foundation rather than a second implementation.
+Its staff model retains the program association from that branch;
 coordinate it with the staff and program PRs before merging.
 
 Migration V11 on this branch conflicts with V11 on the program branch. That
