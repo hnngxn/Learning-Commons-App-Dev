@@ -1,16 +1,13 @@
 package com.group3.learningcommonsproject;
 
-import com.group3.learningcommonsproject.entities.Program;
-import com.group3.learningcommonsproject.repositories.ProgramRepository;
-import com.group3.learningcommonsproject.repositories.StaffInfoRepository;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import com.group3.learningcommonsproject.repository.ProgramRepository;
+import com.group3.learningcommonsproject.repository.StaffInfoRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
 class LearningCommonsProjectApplicationTests {
@@ -28,8 +25,7 @@ class LearningCommonsProjectApplicationTests {
     }
 
     @Test
-    void seededProgramsShouldExist() {
-        List<Program> programs = programRepository.findAll();
-        assertFalse(programs.isEmpty(), "Seeded programs should be loaded by Flyway");
+    void seededProgramsShouldContainAllTenMockupPrograms() {
+        assertEquals(10, programRepository.findAll().size());
     }
 }

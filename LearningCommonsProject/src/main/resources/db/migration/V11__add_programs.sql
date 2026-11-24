@@ -1,19 +1,31 @@
-CREATE TABLE IF NOT EXISTS programs (
+CREATE TABLE IF NOT EXISTS Programs (
                                         id BIGINT AUTO_INCREMENT PRIMARY KEY,
-                                        program_name VARCHAR(255) NOT NULL UNIQUE
+                                        programName VARCHAR(255) NOT NULL
     );
 
 CREATE TABLE IF NOT EXISTS staff_programs (
                                               staff_id BIGINT NOT NULL,
                                               program_id BIGINT NOT NULL,
                                               PRIMARY KEY (staff_id, program_id),
-    CONSTRAINT fk_staff_programs_staff FOREIGN KEY (staff_id) REFERENCES staff_information(id) ON DELETE CASCADE,
-    CONSTRAINT fk_staff_programs_program FOREIGN KEY (program_id) REFERENCES programs(id) ON DELETE CASCADE
+    CONSTRAINT fk_staff_programs_staff
+    FOREIGN KEY (staff_id) REFERENCES Staff_Information(id),
+    CONSTRAINT fk_staff_programs_program
+    FOREIGN KEY (program_id) REFERENCES Programs(id)
     );
 
-INSERT INTO programs (program_name) VALUES
-                                        ('Supplemental Instruction (SI)'),
-                                        ('Peer Tutoring'),
-                                        ('Academic Coaching'),
-                                        ('Math & Science Support Center (MASS)'),
-                                        ('Writing Center');
+INSERT INTO Programs (programName)
+SELECT * FROM (
+                  SELECT 'Academic Coaching' AS programName
+                  UNION ALL SELECT 'Success Skills Workshops'
+                  UNION ALL SELECT 'Academic Writing Center'
+                  UNION ALL SELECT 'Learning Assistants'
+                  UNION ALL SELECT 'Learning Communities'
+                  UNION ALL SELECT 'Math & Science Support Center'
+                  UNION ALL SELECT 'Supplemental Review Sessions'
+                  UNION ALL SELECT 'Content Review Sessions'
+                  UNION ALL SELECT 'Supplemental Instruction'
+                  UNION ALL SELECT 'Peer Tutoring'
+              ) AS seed_programs
+WHERE NOT EXISTS (
+    SELECT 1 FROM Programs p WHERE p.programName = seed_programs.programName
+);
